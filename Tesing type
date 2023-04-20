@@ -1,0 +1,561 @@
+I. TESTING TYPE
+In this article, you will be introduced to the different types of testing that may be used throughout the various stages of a project from local development to shipping to real users.
+
+What are the Types of Testing?
+At different stages of production for a particular project, you may encounter the opportunity for different types of tests, which can vary in scale and resource intensity, as well as serve different purposes. The types of testing we will discuss in this article are:
+
+- Unit tests
+- Integration tests
+- End to end tests
+
+Testing levels art, demonstrating types of tests in a pyramid shape, smaller unit tests at the bottom, larger ent to end tests at the top
+
+Throughout this article, we will discuss how each of these types of tests can be applied to a basic weather application.
+
+Unit Tests
+A unit test covers the smallest possible unit of testable code, such as a single function. In order to keep the scope of a unit test focused on the unit being tested, any data or behavior from other units or external sources that the unit relies on should be replaced with fake (mock) data or behavior.
+
+For example, in a weather application, we might have a number of functions that each handle a small piece of computation, such as converting fahrenheit to celsius or formatting incoming weather data from an API. Unit tests would be written first to ensure that these functions can perform independently before we move on to testing how they work together. Any data that might come in from an external database or API would be mocked.
+
+Integration Tests
+An integration test covers how the units of a particular program work with one another. When testing integrations with external services, only the handling of incoming data is tested while the data itself remains mocked.
+
+For example, in a weather application, integration tests would be written to ensure that weather data fetched from an API will be properly formatted to be displayed to the user. It would also ensure that delays, errors, or invalid data from the external service would be handled properly once they are introduced. The data itself would be mocked.
+
+End to End Tests
+An end to end test (sometimes referred to as a UI layer test or e2e) automates user flow to test the application in the way that a real user would experience it. To closely match the end user’s experience, this type of testing would also test interactions with external services such as databases and APIs.
+
+For example, in a weather application, end to end tests might be written to simulate a user searching for a particular location, selecting that location, choosing celsius or fahrenheit, and clicking through various aspects of the UI. In this test, the actual database and external API is used.
+
+How do these tests relate?
+The order of tests in this article (unit -> integration -> end to end) represent an increase in resource intensity (time, computation, money) and the scope of the tests (amount of code being tested). Due to the increase in complexity, tests of these types may initially be written in this order. However, as an application is developed, new features may be tested using all three types simultaneously, with each providing different feedback to the developer or testing team.
+
+A typical developer’s feedback loop using these various test types might be:
+
+Make code changes
+Make a pull request
+The code change has tests run against it (unit, integration, sometimes e2e)
+If there are any failures then the dev will work on fixes in their local development environment.
+Repeat steps 1-4 until all tests pass.
+The pull request is allowed to be merged.
+Summary
+In this article, we learned about the different types of tests that are written and performed throughout the production process. These include:
+
+Unit tests, which test the smallest unit of code possible.
+Integration tests, which test the interactions between internal services in the application.
+End to end tests, which test the whole application including the external services it depends on.
+These types of tests increase respectively in terms of resource intensity and amount of code being tested and each provide developers and/or testing teams with distinct feedback during the development cycle.
+
+__________________________________________________________________________________________________________________________________________________
+
+II. Software Testing Methodologies
+Learn about software testing methodologies and some specific strategies that use a test-first approach to software development.
+
+Imagine this scenario: you’ve written some code for a new feature and it’s time to test it. You deploy your development version of the code and interact with all of the features of your application that were impacted. This could include features you built in the past and anything new. You repeat that process for different browsers and devices, and a few hours later, you’re confident that it’s ready to go. But then you deploy it to production and the error reports start to come in!
+
+This scenario describes the process of manual testing, which is time-consuming, can result in errors being overlooked, and can’t be repeated easily. To get around the issues related to manual testing, organizations generally use software to automate their testing processes to validate code.
+
+What is a software testing methodology?
+Testing methodologies are specific strategies for testing all of the pieces of your software to make sure it behaves as expected. These strategies include many ways to test software, such as unit testing, integration testing, performance testing, and more. In this article, we’ll take a closer look at testing practices that use a test-first approach to software development.
+
+Why Use Software Testing Methodologies?
+There are many reasons that organizations adopt software testing methodologies:
+
+Software errors can cost companies resources such as money and users.
+Testing results in better reliability.
+Testing can provide a better end-user experience.
+Failing tests help indicate which part of the software is not working when bugs occur
+Overall, the primary goal of testing is to make software development more efficient, reliable, and future-proof.
+
+Different types of methodologies
+Some software testing methodologies prioritize writing test cases before writing the code those test cases will validate. Those types include:
+
+Test-driven Development (TDD)
+Behavior-driven Development (BDD)
+Specification by Example (SBE)
+Acceptance Test-driven Development (ATDD)
+These methodologies are particularly relevant for teams that use an agile, or iterative, approach to software development. Teams don’t have to pick one testing solution and stop there — several approaches can be used by the same team at different stages of development. The following sections take a closer look at TDD and BDD and where they fit into the development cycle to give some more context on testing methodologies in practice.
+
+Test-driven development
+Testing doesn’t necessarily have to occur after code has been written. Test-driven development is a methodology that flips the order, where tests are written before the functioning code is written. By writing tests in this order, test cases can start with the definition of their purpose, or use case.
+
+Those use cases define the specification and documentation on what actions are to be supported by new code. TDD tests look at the components of code, like functions and classes, as the smallest unit to test.
+
+In practice, TDD can accelerate software development since it dictates short development cycles with direct test cases. There are many other benefits of test-driven development:
+
+Developers can better understand the requirements of code, before writing the code.
+Code that will never be executed won’t be added to the codebase.
+The scope of development is reduced.
+Code is written with testability in mind.
+TDD is not the only testing methodology that takes a test-first approach to software development.
+
+Behavior-driven development
+Another testing methodology that uses the strategy of writing test cases before code is behavior-driven development, or BDD. It is extremely similar to TDD in terms of process. Where these two methodologies differ is in why or when tests are written, what an individual unit is considered to be, and how the language of the test is composed.
+
+Since BDD tests are driven by behavior, the language of the test cases are simplified and written via collaboration between engineers, product owners, and other stakeholders, to ensure the specified behaviors make sense from a user perspective.
+
+It can be said that BDD is more specific than TDD. Changes to the code base, such as changing the design of the code, will not occur unless there is a relevant change in the product. Since those changes are feature-related, the unit of tests is called a “feature.” Test cases are related to whether or not the feature works, rather than if the individual functions or classes you are writing to develop features work. Altogether, the tests are about how the product behaves — not the nitty-gritty technical details.
+
+Review
+Nice work, you now know more about software testing methodologies! Let’s quickly recap the main ideas:
+
+Automated testing makes code production more reliable thanks to the ease of running frequent tests on all new and old code in a software application.
+Software companies don’t need to pick a singular software testing methodology — they can be combined and used at various stages during software development.
+Some organizations take a test-first approach to software development, with testing methodologies such as TDD and BDD being the first step of code production.
+Since software errors can cost businesses money and customer trust, testing is an integral part of the development process and used in some flavor by every software company.
+As you continue with testing content, you’ll see TDD as the main methodology we teach (such as this course). Now you have some insight into what TDD is and how it can be used as an example of how to guide the software development process!
+
+______________________________________________________________________________________________________________________________________________________________
+
+III. Introduction
+Testing is an essential part of development. When used properly, testing can catch and identify issues with your implementation code before you deploy it to users. Instead of testing every function manually, developers automate their tests with a test framework.
+
+Developers use test frameworks to organize and automate tests that provide useful feedback when errors occur. In this lesson we will use the Mocha test framework to write tests against JavaScript methods.
+
+In this lesson you will:
+
+Learn to write a basic Mocha test suite
+Use Node’s assert.ok method to verify the expected output of your code
+Understand and apply the four phases of a test to create an expressive testing suite
+Evaluate the quality of your tests against the characteristics of a good test
+
+_______________________________________________________________________________________________________________________________________________________________
+
+IV. Install Mocha I
+Before writing any tests you’ll need to use Node.js and npm to set up a JavaScript project and install Mocha.
+
+Node allows you to run JavaScript in the terminal
+npm is a Node tool that allows you to download packages from the web, and manage them in a JavaScript project
+Mocha is one of those packages and is used to test other JavaScript code
+A JavaScript project is a directory of files. The following command creates a file package.json that can be used to manage packages for the project.
+
+$ npm init
+After running this command you will be prompted to enter information about your project. It’s okay to skip some fields if you’re not ready to enter that information.
+
+With your project setup, you can install packages.
+
+$ npm install mocha -D
+Here’s what this command means:
+
+npm install tells npm to install a package from the internet and any other packages it depends on
+mocha is the package you want to download
+-D signifies that this package is a development dependency and will show up under the devDependecies section in package.json. This means that the package will only be included in development mode and will not be included in the production bundle.
+Once you npm install packages, you can find the packages and all their dependencies in the node_modules folder. The new directory structure contains the following:
+
+project
+|_ node_modules
+|___ .bin
+|___ mocha
+|___ ...
+|_ package.json
+
+The ... in the file structure represents other packages that are a dependency for Mocha.
+
+_______________________________________________________________________________________________________________________________________________________________
+
+V. Install Mocha II
+After installing Mocha as a dependency we can run it in two ways.
+
+The first (and more tedious) method is to call it directly from node_modules:
+
+$ ./node_modules/mocha/bin/mocha
+The second (and recommended) method is to add a script to package.json. In the scripts object in package.json, set the value of "test" to mocha. It should look like this:
+
+"scripts": {
+  "test": "mocha"
+}
+Now you can call Mocha with the following command:
+
+$ npm test
+Instead of manually running each test in the test directory, you can use this command to run the full test suite automatically.
+
+`
+{
+  "name": "learn-mocha-learn-mocha-install-mocha-ii",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  }
+}
+"scripts": {
+  "test": "mocha"
+}
+`
+______________________________________________________________________________________________________________________________________________________________
+
+VI. describe and it blocks
+In Mocha we group tests using the describe function and define tests using the it function. These two functions can be used to make your test suite complete, maintainable, and expressive in the following ways:
+
+Structure your test suite: you can organize tests into nested groups that reflect the structure of your implementation code.
+
+Provide informative messages: you can define your tests using human-readable strings.
+
+If you are testing a Math object with the method .max, you could use the following test code.
+
+`
+describe('Math', () => {
+  describe('.max', () => {
+    it('returns the argument with the highest value', () => {
+      // Your test goes here
+    });
+    it('returns -Infinity when no arguments are provided', () => {
+      // Your test goes here
+    });
+  });
+});
+`
+Both the describe and it functions accept two parameters: a descriptive string and a callback function. Though the functions are flexible, they are commonly used in the structure above: nest describe blocks to resemble the structure of your implementation code and write individual tests in it blocks. This makes your test suite isolated, maintainable, and expressive.
+
+______________________________________________________________________________________________________________________________________________________________
+
+VII. assert
+In the last exercise, you learned how to organize and automate tests using the Mocha test framework. To write the tests themselves, we can use the assert.ok method provided by Node.js.
+
+In programming, a test compares an expected outcome to an actual outcome. For example, we expect the outcome of the following code…
+
+const a = 1 + 2;
+…to be: a has a value of 3.
+
+To test the value saved to a with plain JavaScript, you would need to write a conditional statement comparing a to the expected result. Inside the statement, you would construct an error when the actual outcome does not match the expected.
+`
+if (a !== 3) {
+  throw 'Test failed! a is not 3'
+}
+`
+assert.ok() allows you to compare values and throw errors as needed using one function call. The small, human-readable format of the functions will help you make a more expressive test suite.
+
+As a Node module, assert can be imported at the top of your files with
+`
+const assert = require('assert');
+`
+You call assert functions like this:
+`
+assert.ok(a === 3);
+`
+In this case a === 3 evaluates to true, so no error is thrown.
+
+If an argument passed to assert.ok() evaluates to false, an AssertionError is thrown. The error communicates to Mocha that a test has failed, and Mocha logs the error message to the console.
+
+`
+// import assert here
+const assert = require('assert');
+
+describe('+', () => {
+  it('returns the sum of its arguments', () => {
+    // Write assertion here
+    assert.ok(3 + 4 === 7);
+  });
+});
+`
+_____________________________________________________________________________________________________________________________________________________________
+
+VIII. Setup, Exercise, and Verify
+In this exercise you will be separating a test into setup, exercise, and verify phases. This distinct and well-defined separation of steps makes your test more reliable, maintainable, and expressive.
+
+The phases are defined as follows:
+
+1. Setup - create objects, variables, and set conditions that your test depends on
+2. Exercise - execute the functionality you are testing
+3. Verify - check your expectations against the result of the exercise phase. You can use the assert library here
+
+Clear separation of each phase makes a test easier to read, change, and validate.
+
+`
+const assert = require('assert');
+
+// Naive approach
+describe('.pop', () => {
+  it('returns the last element in the array [naive]', () => {
+    assert.ok(['padawan', 'knight'].pop() === 'knight'); 
+  });
+});
+
+// 3 phase approach
+describe('.pop', () => {
+  it('returns the last element in the array [3phase]', () => {
+    // Setup
+    const knightString = 'knight';
+    const jediPath = ['padawan', knightString];
+
+    // Exercise
+    const popped = jediPath.pop();
+
+    // Verify
+    assert.ok.popped === knightString;
+  });
+});
+`
+_____________________________________________________________________________________________________________________________________________________________
+
+IX. Teardown
+So far, we’ve been writing just one test using a single it() block. However, in most situations, we will need to write many tests for a particular feature that get executed in succession.
+
+Running multiple tests can introduce issues if the tests make changes to the testing environment: changes to the environment in one test might affect the next test. Some common changes to an environment include:
+
+altering files and directory structure
+changing read and write permissions on a file
+editing records in a database
+To address this issue, we often add a teardown step to the end of our tests. The teardown phase makes our tests isolated by resetting the environment before the next test runs. This provides two key benefits:
+
+Changes to the environment caused by one test do not affect the other tests.
+Isolated tests can be executed in any order!
+Note: In some cases — including the previous exercises  — the teardown phase isn’t needed because there are no conditions to reset. 
+
+Exercise:
+1.This exercise uses Node’s filesystem library fs in addition to assert. It’s okay if you’re not familiar with fs — we will briefly explain the key methods we are using:
+fs.appendFileSync(path, str) creates a new file at path with the string str as content. If a file at path exists, the string str will be appended to the end.
+fs.readFileSync(path) returns the contents of the file found at path.
+The first test found in this exercise verifies that we can use fs.appendFileSync() to create a file called ./message.txt with the string 'Hello Node.js'. The second test verifies that we can do the same but with an empty string.
+If you open up your file system, you’ll see that the file message.txt doesn’t exist yet. Run the test in the terminal. Why does the first test pass but the second test fails?
+
+Hint: Run the command npm test in your terminal.
+
+2. Note the new file message.txt created in your directory. It should have the text Hello Node.js:
+
+project
+|_ node_modules
+|_ test
+|___ index_test.js
+|_ message.txt <--- new file
+|_ package.json
+
+In both tests, we are modifying the environment by creating a new message.txt file. However, the current tests do not have a teardown phase. The test fails because the second test appends an empty string to the file created from the first test instead of creating a new file with just an empty string.
+Furthermore, if you were to run the test file again, the first test would now fail. Run the test again and see for yourself — the message.txt file will now have the text Hello Node.jsHelloNode.js.
+
+3. You got different output because the test was not isolated.
+- In the first run the file didn’t exist, so `fs.appendFileSync()` created a message.txt file containing the string.
+- In the second run, the method added the string to the end of message.txt because it already existed.
+- The second test run failed because the string Hello Node.js was added twice to the same file!
+- In the terminal enter `rm message.txt` to delete the file.
+
+4. To ensure that each test is isolated from each other, and that each run of the test file isolated, we will add a teardown step to the tests. In this case, we want to make sure that after each test, the file found at path is deleted.
+
+Add this code below // Teardown in both tests to delete the file after the test has completed.
+`
+fs.unlinkSync(path);
+`
+Why do we delete the file after the second test? We want to ensure that the environment returns to its state before the tests were executed. This keeps the tests isolated.
+
+5. Verify that you fixed the issue: run the test suite twice and compare the outputs. It should pass both times!
+
+`
+const assert = require('assert');
+const fs = require('fs');
+let path, str;
+ 
+describe('appendFileSync', () => {
+  it('creates a new file with a string of text', () => {
+ 
+   // Setup
+   path = './message.txt';
+   str = 'Hello Node.js';
+  
+   // Exercise: write to file
+   fs.appendFileSync(path, str);
+ 
+   // Verify: compare file contents to string
+   const contents = fs.readFileSync(path);
+   assert.equal(contents.toString(), str);
+ 
+   // Teardown: restore file
+fs.unlinkSync(path);
+ });
+ 
+ it('creates a new file with a string of text', () => {
+ 
+   // Setup
+   path = './message.txt';
+   str = '';
+  
+   // Exercise: write to file
+   fs.appendFileSync(path, str);
+ 
+   // Verify: compare file contents to string
+   const contents = fs.readFileSync(path);
+   assert.equal(contents.toString(), str);
+ 
+   // Teardown: restore file
+fs.unlinkSync(path);
+ });
+});
+`
+_______________________________________________________________________________________________________________________________________________________________
+
+X. HOOKS
+
+Over the last two exercises, we learned about the four main phases of a test: setup, execute, verify, and teardown. In the last exercise, you may have noticed that the setup and teardown steps were identical between tests.
+
+While execution and verification are unique to each test, setup and teardown are often similar or even identical for multiple tests within a test suite. The Mocha test framework provides functions that enable us to reduce repetition, simplify the scope of each test, and more finely control the execution of our tests.
+
+These functions (also referred to as hooks) are:
+
+`beforeEach(callback)` - callback is run before each test
+`afterEach(callback)` - callback is run after each test
+`before(callback)` - callback is run before the first test
+`after(callback)` - callback is run after the last test
+
+Each hook accepts a callback to be executed at various times during a test. The before... hooks naturally happen before tests and are useful for separating out the setup steps of your tests. Meanwhile, the after... hooks are executed after tests and are useful for separating out the teardown steps of your tests.
+
+`
+describe('messing around with hooks', () => {
+ 
+  let testValue; // Variable used by both tests
+ 
+  beforeEach(() => {
+    testValue = 5;
+  });
+ 
+  it('should add', () => {
+    // testValue = 5 <-- moved to beforeEach()
+    testValue = testValue + 5;
+    assert.equal(testValue, 10);
+  });
+ 
+  it('should multiply', () => {
+    // testValue = 5 <-- moved to beforeEach()
+    testValue = testValue * 5;
+    assert.equal(testValue, 25);
+  });
+ 
+});
+`
+In this example, while each `it()` block could have set the testValue to 5, using the `beforeEach()` hook allows us to avoid that repetition while keeping each test isolated.
+
+Keep in mind that not all setup and teardown steps should be included in these hooks. Occasionally, you may find that you need to perform some unique setup or teardown for a single test that you don’t want to include in other tests.
+
+Exercise: 
+1. path = './message.txt' is repeated in both tests, but only needs to be assigned once.
+First, inside the describe() block and above the first it() test, create the appropriate hook to simplify this. For now, use an empty callback function with your hook.
+Hint: 
+While you could use beforeEach() here, the path variable is only ever set once and never changes so before() is preferable.
+`
+describe('...', () => {
+ 
+  before(() => {
+ 
+  });
+ 
+  it('...', () => {
+ 
+});
+`
+2. Now, copy path = './message.txt' into the callback for your new hook and delete it from the it() blocks.
+Hint: 
+`
+Your code should look something like this:
+
+describe('...', () => {
+ 
+  before(() => {
+    path = 'message.txt.';
+  });
+ 
+  it('...', () => {
+    // test code
+  });
+});
+`
+3. Great work! We’ve moved a repetitive setup step out of the tests and into the before() hook. Run the test suite to make sure that the tests still pass.
+After you’ve pressed Check Work, type clear into the terminal to clear the message.
+Hint: npm test
+
+4. `fs.unlinkSync(path);` is repeated at the end of both tests. Use the appropriate hook to have this teardown executed after each test.
+First, inside the `describe()` block and before the first `it()` test, create the appropriate hook to simplify this. For now, use an empty function.
+Hint: 
+`
+describe('...', () => {
+ 
+  afterEach( () => {
+  // paste teardown phase here
+  });
+ 
+  it('...', () => {
+  // cut teardown phase here
+});
+`
+5. Now, copy fs.unlinkSync(path); into the callback for your new hook and delete it from the it() blocks.
+Hint: 
+`
+describe('...', () => {
+  before('...', () =>{
+    path = 'message.txt.';
+  });
+ 
+  afterEach(() => {
+ 
+  });
+ 
+  it('...', () => {
+ 
+  });
+  it('...', () => {
+ 
+  });
+});
+`
+6. Confirm everything works by running the test suite!
+Hint: npm test
+
+==> Code below: 
+`
+const assert = require('assert');
+const fs = require('fs');
+let path, str;
+ 
+describe('appendFileSync', () => {
+ 
+ before(() => {
+   path = './message.txt';
+ });
+ 
+ afterEach(() => {
+   fs.unlinkSync(path);
+ })
+  it('writes a string to text file at given path name', () => {
+ 
+   // Setup
+   str = 'Hello Node.js';
+  
+   // Exercise: write to file
+   fs.appendFileSync(path, str);
+ 
+   // Verify: compare file contents to string
+   const contents = fs.readFileSync(path);
+   assert.equal(contents.toString(), str);
+ 
+ });
+ 
+ it('writes an empty string to text file at given path name', () => {
+ 
+   // Setup
+   str = '';
+  
+   // Exercise: write to file
+   fs.appendFileSync(path, str);
+ 
+   // Verify: compare file contents to string
+   const contents = fs.readFileSync(path);
+   assert.equal(contents.toString(), str);   
+ });
+});
+`
+_______________________________________________________________________________________________________________________________________________________
+
+XI. REVIEW
+You can now write tests with Mocha and Node’s assert.ok() ! In this lesson you learned:
+- Install Mocha with npm
+- Organize tests with describe() and it()
+- Ensure your tests are isolated and expressive with the four phases of a test
+- Ensure your tests are reliable with hooks
+- Write assertions with assert.ok()
+- As you continue to write tests, remember to always evaluate them against the characteristics of a good test: fast, complete, reliable, isolated, maintainable, and expressive. If you are meeting these six criteria, you are creating high quality test frameworks!
+
+@Meow.Nalini98
+________________________________________________________________________________________________________________________________________________________
