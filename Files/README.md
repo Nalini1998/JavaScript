@@ -68,7 +68,7 @@ To update the state with a callback function, see the example:
   const increment = () => setCount(prevCount => prevCount + 1);
 ```
 
-#### **4**. Add an event listener to the “Next Question” button that will call our newly defined event handler.
+#### 4. Add an event listener to the “Next Question” button that will call our newly defined event handler.
 
 **Hint:**
 
@@ -77,11 +77,11 @@ To add an `event` listener when a `button` is clicked, _**add**_ an `onClick` ev
 <button onClick={increment}>Click here!</button>
 ```
 
-#### 5. Lastly, add an onFirstQuestion variable with a boolean value, then use that value to toggle the disabled attribute of the “Go Back” button on and off.
+  #### 5. Lastly, add an onFirstQuestion variable with a boolean value, then use that value to toggle the disabled attribute of the “Go Back” button on and off.
 
-**Hint:**
-JavaScript `arrays` use `zero-based` indexing, so we can determine whether `onFirstQuestion` has a `value` of `true` or `false` by checking if `questionIndex` currently has a `value` of `0`!
+  **Hint:**
+  JavaScript `arrays` use `zero-based` indexing, so we can determine whether `onFirstQuestion` has a `value` of `true` or `false` by checking if `questionIndex` currently has a `value` of `0`!
 
-To use this `boolean` value, _**add**_ the following attribute to the **"Go Back"** `button`:
+  To use this `boolean` value, _**add**_ the following attribute to the **"Go Back"** `button`:
 
- `disabled={onFirstQuestion}`
+  `disabled={onFirstQuestion}`
