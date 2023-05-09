@@ -37,7 +37,7 @@ We can also just call `setCount(count +1)` and it would work the same in this _e
 
 # Instructions
 
-#### **1**. Let’s get some practice by creating a navigation bar for a quiz. The navigation bar will let us go back or go to the _next question_ in a **quiz**.
+#### 1. Let’s get some practice by creating a navigation bar for a quiz. The navigation bar will let us go back or go to the _next question_ in a **quiz**.
 
 First, define a `goBack()` event handler function. It should allow us to navigate to the `previous` **quiz question**. Because our `next value` of `state` depends on the `previous state` value, this function should call the `state` setter with a `callback` function. Our `state` setter `callback` function needs to compute the `next` value of `questionIndex` using an argument named `prevQuestionIndex`.
 
@@ -48,7 +48,7 @@ To _**update**_ the `state` with a `callback` function, see the example:
 const increment = () => setCount(prevCount => prevCount + 1);
 ```
 
-#### **2**. Next, add an `event` listener to the `"Go Back"` `button` that will `call` our newly defined `event` handler.
+#### 2. Next, add an event listener to the "Go Back" button that will call our newly defined event handler.
 
 **Hint:**
 
@@ -57,7 +57,7 @@ To _**add**_ an `event` listener when a `button` is clicked, add an `onClick` `e
 <button onClick={increment}>Click here!</button>
 ```
 
-#### **3**. If we can go back to a `previous` _question_, we should also be able to go to the `next` _question_.
+#### 3. If we can go back to a `previous` _question_, we should also be able to go to the `next` _question_.
 
 Define a `goToNext()` `event` handler. Because our next value of `state` depends on the `previous` `state` value, this function should call the `state` setter with a `callback` function. Our `state` setter `callback` function needs to compute the next value of `questionIndex` using an argument named `prevQuestionIndex`.
 
