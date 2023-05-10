@@ -1,66 +1,100 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+# **THE STATE HOOK**
+## **Objects in State**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+We can also use `state` with `objects`. When we work with a `set` of related variables, it can be very helpful to _group_ them into an _object_. Let’s look at an example of this in action.
+```
+export default function Login() {
+  const [formState, setFormState] = useState({});
+  const handleChange = ({ target }) => {
+    const { name, value } = target;
+    setFormState((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+ 
+  return (
+    <form>
+      <input
+        value={formState.firstName}
+        onChange={handleChange}
+        name="firstName"
+        type="text"
+      />
+      <input
+        value={formState.password}
+        onChange={handleChange}
+        type="password"
+        name="password"
+      />
+    </form>
+  );
+}
+```
+### **A few things to notice:**
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+We use a `state` `setter` callback function to _update_ a `state` based on the `previous` value.
+The spread _**syntax**_ is the same for `objects` as for `arrays`: `{ ...oldObject, newKey: newValue }.`
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+We reuse our `event` handler across `multiple` inputs by using the input tag’s `name` attribute to `identify` which input the change `event` came from.
+Once again, when updating the `state` with `setFormState()` inside a function component, we do not `modify` the same `object`. We must copy over the values from the `previous` `object` when setting the `next` value of a `state`. Thankfully, the spread _**syntax**_ makes this super easy to do!
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+Anytime one of the `input` values is updated, the `handleChange()` function will be called. Inside this `event` handler, we use `object` destructuring to _unpack_ the `target` property from our `event` `object`, then we use `object` destructuring again to _unpack_ the `name` and `value` properties from the `target` `object`.
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+Inside our `state` `setter` callback function, we wrap our _curly brackets_ in parentheses like so:
 
-## FAQ
+```setFormState((prev) => ({ ...prev }))```
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+This tells `JavaScript` that our _curly brackets_ refer to a `new object` to be returned. We use `...`, the spread operator, to fill in the corresponding `fields` from our `previous state`. Finally, we overwrite the appropriate `key` with its `updated value`.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+I noticed the _square brackets_ around the `name`? This `Computed Property Name` allows us to use the string value `stored` by the name variable as a `property key`.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+# **Instructions**
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+#### **1/ We’ll use objects with states to build an input form.**
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+The `local state` variable `profile` and `state setter` function `setProfile` are responsible for keeping track of the `input` values from our `users`. In our `JSX`, we are looking up properties `stored` in the `profile` `object`. This throws an `error` at our `first` `render` because we are _attempting to get the value of a property from an object that has not been defined yet._
+To fix this, initialize `profile` as an _empty_ `object`.
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+**Hint:**
+To initialize a `state`, we call the `useState()` function with the _value_ that we want `React` to use as the `state` during the `first render`.
+Pass `{}` as an argument to our `useState()` function call.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#### **2/ Add the onChange event listener to our JSX tags**
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+We should now see the `form`rendered, but nothing will happen when we type in the `input` boxes. Our form does not `re-render` to show the `keystrokes` yet.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+To fix this, _**add**_ the `onChange` `event` listener to our `JSX` tags to call `handleChange()` whenever a `user` types in an `input` field. This way, we can determine what happens when the user changes the `input` by typing in the `form`.
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+**Hint:**
+Make sure to _**add**_ the `onChange` `event` listener as an attribute of each of our `<input>` tags. Use each of these `event` listeners to call the same `event` handler, `handleChange()`.
+
+#### **3/ Use object destructuring to initialize name and value in a more concise way**
+
+Let’s make our `handleChange()` function a bit easier to read. Use `object` destructuring to initialize `name` and `value` in a more concise way.
+
+**Hint:**
+_**Replace**_ the `current name` and `value`declarations with the destructuring `syntax` like the following:
+```
+const {name, value} = target;
+```
+#### **4/ Use prevProfile as the argument for our state setter callback function**
+
+Each time that we call `setProfile()` in our `event` handler, we give `profile` the `value` of a `new object` with the `name`and `value` of the `input` that most recently changed, but we lose the values that were `stored` for `inputs` with any other `name`.
+
+Use the spread operator to fix this _bug_. We want to _**copy**_ over all of the `values` from our `previous` `profile` `object` whenever we call our `state` `setter` function. Use `prevProfile` as the argument for our `state` `setter` callback function.
+
+**Hint:**
+The `name` of the _first argument_of the callback function should be `prevProfile`.
+Use the spread operator to _**copy**_ over the `values` from `prevProfile` into our `new` `state` `object` like the following:
+
+```
+setProfile((prevProfile) => ({
+  // use the spread operator here
+  [name]: value
+}));
+```
+#### **5. Add an event listener to the 'form' tag to call our handleSubmit() function when the user submits the form**
+
+**Hint:**
+Much like how we use the `onChange` `event` listener to listen for changes in our `<input>` elements, we use `onSubmit` to listen for `submit` `events` in our `<form>` elements.
