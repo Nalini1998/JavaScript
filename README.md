@@ -1,66 +1,53 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+# **Project: Responsive Club Website**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+## **Overview:**
+​
+This Project is slightly different than others I have encountered thus far. Instead of a _step-by-step_ tutorial, this Project contains a series of open-ended requirements which describe the Project I’ll be building. 
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+There are many possible ways to correctly fulfill all of these requirements, and I should expect to use the Internet and other resources when I encounter a problem that I cannot easily solve.​
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+## **Project Goals**
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+In this Project, I’ll be building **My own club group page** that will dynamically respond as I adjust the size of My screen!​
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+## **Prerequisites**
 
-## FAQ
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+### **1. To complete this Project**
+We should have knowledge the _Responsive Design_, or the same documents guide us _How to Build Websites Path?_.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+### **2. I’ll build a webpage for a local club**
+In this Project, I’ll build a webpage for a local club. I can base it on _real-life_ organization I belong to or make one up! 
+I’ll get to choose everything about _**My page**_: The _club name_, _the page layout_, _styling_, and _any images_ that I want to use, _etc._ 
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+### **3. My Project should demonstrate many of the responsive design tools. 
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+In my Project, I used `percentages` and `relative units`, such as `em` and `rem`, in my **CSS** to _size_ and _position_ page elements. I also made my _website responsive_ by incorporating `media queries` to `resize` elements based on the `size` of the `screen`.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Possible responsive design _concepts_ to demonstrate:​
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Making _**images**_ toggle to certain **percentages** in terms of `width` after a certain _**minimum screen size**_.
+Using a `@media` rule to change `page layout` and behavior based on `size` breakpoints.
+Employing responsive units `em` and `rem` to `size` and `space` elements with `width` and `padding`.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## **Project Solution**
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+### **4. Review and Reference**
+
+_Great work!_ You can refer to my Code and compare them with each other. I can also learn how to host My own solution on **GitHub** so I would like to share this one with other people!
+
+Please keep in mind that this is just a possible solution. **Your own Project** can be coded totally differently, have more or less content, and look totally different! 
+I am providing my Solution for you to get a sense of one way to use `responsive units` and `media queries` to affect `page laIt`. There are multiple ways to solve these Projects, and I’ll learn more by seeing others’ Code.
+
+
+
+
+[Origin: Nalini Vo](https://github.com/Nalini1998)
+
+
+
+
+
+______________

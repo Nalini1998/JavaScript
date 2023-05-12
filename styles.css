@@ -1,0 +1,392 @@
+/* Color and Font Palette */
+:root {
+    --contrast-light: rgb(255, 254, 196);
+    --accent1: rgb(240, 208, 117);
+    --accent2: rgb(135, 30, 25);
+    --accent3: rgb(37, 2, 1);
+    --contrast-dark: rgb(3, 3, 3);
+    --title: 'MedievalSharp';
+    --heading: 'Alegreya Sans SC';
+    --heading2: 'Girassol';
+    --body-text: 'Alegreya Sans';
+}
+
+
+/* Global Styles */
+*, 
+* ::after, 
+  ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+.parallax {
+    background-attachment: fixed;
+}
+
+h2 {
+    display: block;
+    font-family: var(--heading2);
+    font-size: 5rem;
+    font-weight: bolder;
+    color: var(--contrast-light);
+    line-height: 6rem;
+}
+
+
+/* Header & Navigation */
+header {
+    position: sticky;
+    z-index: 5;
+}
+
+nav {
+    background-color: var(--accent3);
+}
+
+nav li {
+    display: inline;
+}
+
+nav a {
+    display: inline-block;
+    color: var(--accent1);
+    text-transform: uppercase;
+    font-family: var(--heading);
+    font-size: 1.5rem;
+    padding: 0 3rem;
+    line-height: 3.5rem;
+}
+
+nav a:hover {
+    background-color: var(--accent1);
+    color: var(--contrast-dark);
+    transition: 0.3s;
+}
+
+
+/* Hero Section */
+
+.hero {
+    background-image: url("https://images.unsplash.com/photo-1633506079263-7029b4f46762?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
+    background-position: 10% 50%;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 12rem;
+    font-family: var(--title);
+    color: var(--accent1);
+    margin-left: 5%;
+}
+
+
+/* Group Description */
+
+#description {
+    background-color: var(--contrast-light);
+    background-image: url("https://images.unsplash.com/photo-1627201037957-122575054b28?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80");
+    background-size: cover;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card {
+    background-color: var(--accent2);
+    width: 75%;
+    margin: 4rem auto;
+    padding: 4rem;
+    text-align: center;
+    border-radius: 25px;
+    opacity: 0.9;
+}
+
+.subheading {
+    display: block;
+    margin-top: 4rem;
+    font-size: 2rem;
+    font-family: var(--body-text);
+    color: var(--contrast-light);
+    line-height: 3.5rem;
+}
+
+
+/* Events */
+
+#events {
+    background-color: var(--contrast-dark);
+    width: 100%;
+}
+
+.event-heading {
+    text-align: center;
+    padding: 4rem;
+}
+
+.event-grid {
+    display: grid;
+    grid-template: 60% 40% / repeat(3, 33%);
+    justify-content: center;
+    gap: 2rem;
+    width: 80%;
+    height: 600px;
+    padding: 0 0 6rem;
+    margin: 0 auto;
+    --gradient-light: rgba(0,0,0,0.4);
+    --gradient-dark: rgba(0,0,0,1);
+}
+
+.event-card {
+    position: relative;
+    background-position: center;
+}
+
+#party-up {
+    grid-area: 1 / 1 / span 1 / span 2;
+    background-image: url("https://static1.cbrimages.com/wordpress/wp-content/uploads/2021/02/Dungeons-and-Dragons-Party.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5"), 
+    linear-gradient(var(--gradient-light), var(--gradient-dark));
+    background-blend-mode: overlay;
+    background-position: 50% 20%;
+}
+
+#new-player {
+    grid-area: 1 / 3 / span 1 / span 1;
+    background-image: url("https://c0.wallpaperflare.com/preview/724/930/501/gamer-table-top-pathfinder-dungeons-and-dragons.jpg"), linear-gradient(var(--gradient-light), var(--gradient-dark));
+    background-blend-mode: overlay;
+    background-position: 30% 70%;
+
+}
+
+#tournaments {
+    grid-area: 2 / 1 / span 1 / span 1;
+    background-image: url("https://www.paulsgameblog.com/wp-content/uploads/2018/10/dnd-tournament.jpg"), linear-gradient(var(--gradient-light), var(--gradient-dark));
+    background-blend-mode: overlay;
+    background-position: 50% 20%;
+}
+
+#release-party {
+    grid-area: 2 / 2 / span 1 / span 1;
+    background-image: url("https://media.comicbook.com/2018/11/dungeond-and-dragons-books-1146037.jpeg"), linear-gradient(var(--gradient-light), var(--gradient-dark));
+    background-blend-mode: overlay;
+    background-position: 20% 0%;
+}
+
+#sales {
+    grid-area: 2 / 3 / span 1 / span 1;
+    background-image: url("https://images.unsplash.com/photo-1632931124386-2576db31ab97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"), linear-gradient(var(--gradient-light), var(--gradient-dark));
+    background-blend-mode: overlay;
+}
+
+.event-info {
+    background-color: rgba(135, 30, 25, 0.4);
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+}
+
+h3 {
+    font-family: var(--heading2);
+    font-size: 2rem;
+}
+
+h4 {
+    font-family: var(--heading);
+    font-size: 1.5rem;
+}
+
+.event-card:hover .event-info{
+    background-color: var(--contrast-dark);
+    color: var(--accent1);
+    transition: 0.3s;
+}
+
+/* Sponsors */
+
+#sponsors {
+    background-color: var(--accent3);
+    text-align: center;
+}
+
+#sponsors h2 {
+    padding-top: 4rem;
+}
+
+#sponsors .container {
+    justify-content: space-around;
+    padding: 3rem 0 6rem;
+}
+
+#sponsors img {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+}
+
+
+/* Footer */
+
+footer {
+    height: 6rem;
+    background-color: rgb(14, 12, 12);
+    color: white;
+}
+
+footer p {
+    padding: 2rem 0 0 2rem;
+}
+
+
+/* Responsive Design */
+
+@media only screen and (max-width:1200px) {
+  h1 {
+    font-size: 10rem;
+  }
+
+  .hero {
+    background-position: 20% 40%;
+  }
+
+  #sponsors img {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+
+@media only screen and (max-width:900px) {
+  h1 {
+    font-size: 9rem;
+  }
+
+  .hero {
+      background-position: 30% 20%;
+    }
+
+  h2 {
+    font-size: 4rem;
+    line-height: 5rem;
+    }
+
+  .subheading {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    }
+
+  h3 {
+    font-size: 1.5rem;
+    }
+
+  h4 {
+    font-size: 1rem;
+    }
+  }
+
+@media only screen and (max-width:768px) {
+  h1 {
+    font-size: 8rem;
+  }
+
+  .hero {
+    background-position: 30% 15%;
+  }
+
+  h2 {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .subheading {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  h1 {
+    font-size: 5rem;
+    margin: 15rem 0 0 3rem;
+  }
+
+  header {
+    position: sticky;
+    bottom: 0;
+  }
+
+  nav a {
+    padding: 0 1rem;
+    font-size: 1.125rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  #events {
+    height: 1200px;
+  }
+
+  .event-grid {
+    grid-template: 2fr repeat(4, 1fr) / 1fr;
+  }
+
+  .event-card {
+    height: 10rem;
+  }
+
+  #party-up {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+
+  #new-player {
+    grid-area: 2 / 1 / 3 / 2;    
+  }
+
+  #tournaments {
+    grid-area: 3 / 1 / 4 / 2;    
+  }
+
+  #release-party {
+    grid-area: 4 / 1 / 5 / 2;    
+  }
+
+  #sales {
+    grid-area: 5 / 1 / 6 / 2;    
+  }
+
+  #sponsors img {
+    width: 5rem;
+    height: 5rem;
+    }
+  }
+
+@media only screen and (min-width:601px) {
+  header {
+    position: sticky;
+    top: 0;
+    }
+  }
