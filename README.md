@@ -1,66 +1,92 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+CLASSES
+Inheritance II
+In the last exercise, we created a parent class named Animal for two child classes named Cat and Dog.
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+The Animal class below contains the shared properties and methods of Cat and Dog.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+ 
+  get name() {
+    return this._name;
+  }
+ 
+  get behavior() {
+    return this._behavior;
+  }   
+ 
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+The code below shows the Cat class that will inherit information from the Animal class.
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+class Cat {
+  constructor(name, usesLitter) {
+    this._name = name;
+    this._usesLitter = usesLitter;
+    this._behavior = 0;
+  }
+ 
+  get name() {
+    return this._name;
+  }
+ 
+  get behavior() {
+    return this._behavior;
+  }
+ 
+  get usesLitter() {
+    return this._usesLitter;
+  }
+ 
+  incrementBehavior() {
+    this._behavior++;
+  }
+}
+To the right, in main.js, you will put what you learned to practice by creating a parent class named HospitalEmployee.
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+Instructions
+1.
+In the next few exercises, you will create two subclasses (Doctor and Nurse) from a parent class named HospitalEmployee. Below, we have listed the properties and methods you will find in the Doctor and Nurse classes.
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+Doctor
+Properties: _name, _remainingVacationDays (set to 20 inside the constructor()), _insurance
+Methods: .takeVacationDays()
+Nurse
+Properties: _name, _remainingVacationDays (set to 20 inside constructor()), _certifications
+Methods: .takeVacationDays(), .addCertification()
+In main.js, create a parent class named HospitalEmployee. Add a constructor with name as an argument.
 
-## FAQ
+Checkpoint 2 Passed
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+Hint
+The Doctor and Nurse classes share two properties: _name and _remainingVacationDays.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+Since the _remainingVacationDays is always set to 20, name is the only input parameter. Add name between the opening and closing parentheses.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+2.
+Inside of the constructor(), set the instance’s _name to name and _remainingVacationDays to 20.
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+Checkpoint 3 Passed
+3.
+Under the constructor, create getters for your _name and _remainingVacationDays properties.
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+Inside the getter, return the property’s value.
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+Checkpoint 4 Passed
+4.
+Under the getters, add a method called takeVacationDays.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+This method should accept one argument, called daysOff.
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Inside the method, subtract daysOff from _remainingVacationDays. Save the result to _remainingVacationDays.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Checkpoint 5 Passed
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+Hint
+Use the -= operator to subtract and set a property.
+
