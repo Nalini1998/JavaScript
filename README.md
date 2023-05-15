@@ -1,66 +1,86 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+Inheritance III
+We’ve abstracted the shared properties and methods of our Cat and Dog classes into a parent class called Animal (See below).
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+class Animal {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+ 
+  get name() {
+    return this._name;
+  }
+ 
+  get behavior() {
+    return this._behavior;
+  }
+ 
+  incrementBehavior() {
+    this._behavior++;
+  }
+} 
+Now that we have these shared properties and methods in the parent Animal class, we can extend them to the subclass, Cat.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+class Cat extends Animal {
+  constructor(name, usesLitter) {
+    super(name);
+    this._usesLitter = usesLitter;
+  }
+}
+In the example above, we create a new class named Cat that extends the Animal class. Let’s pay special attention to our new keywords: extends and super.
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+The extends keyword makes the methods of the animal class available inside the cat class.
+The constructor, called when you create a new Cat object, accepts two arguments, name and usesLitter.
+The super keyword calls the constructor of the parent class. In this case, super(name) passes the name argument of the Cat class to the constructor of the Animal class. When the Animal constructor runs, it sets this._name = name; for new Cat instances.
+_usesLitter is a new property that is unique to the Cat class, so we set it in the Cat constructor.
+Notice, we call super on the first line of our constructor(), then set the usesLitter property on the second line. In a constructor(), you must always call the super method before you can use the this keyword — if you do not, JavaScript will throw a reference error. To avoid reference errors, it is best practice to call super on the first line of subclass constructors.
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+Below, we create a new Cat instance and call its name with the same syntax as we did with the Dog class:
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+const bryceCat = new Cat('Bryce', false); 
+console.log(bryceCat._name); // output: Bryce
+In the example above, we create a new instance the Cat class, named bryceCat. We pass it 'Bryce' and false for our name and usesLitter arguments. When we call console.log(bryceCat._name) our program prints, Bryce.
 
-## FAQ
+In the example above, we abandoned best practices by calling our _name property directly. In the next exercise, we’ll address this by calling an inherited getter method for our name property.
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+Instructions
+1.
+In this exercise, you will begin to create the Nurse class as a child of the HospitalEmployee class. Remember the Nurse class has the following properties and methods:
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+Nurse
+Properties: _name, _remainingVacationDays (set to 20 inside constructor()), _certifications
+Methods: .takeVacationDays(), .addCertification()
+Under HospitalEmployee, create an empty class named Nurse that extends HospitalEmployee.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+Checkpoint 2 Passed
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+Hint
+Use the class and extends keywords to create the Nurse class from the HospitalEmployee class.
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+2.
+Inside the Nurse class, create a constructor() that accepts two arguments. Use the list of properties above to name these arguments.
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+Check the Hint if you need help.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Checkpoint 3 Passed
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Hint
+You should name the two arguments name and certifications.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+3.
+In the Nurse constructor, call the parent’s constructor method and pass the appropriate value(s).
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+Checkpoint 4 Passed
+
+Hint
+Use the super keyword to call the parent’s constructor(). Pass in the name argument.
+
+4.
+Inside of the Nurse constructor, and under super, set _certifications.
+
+Checkpoint 5 Passed
+5.
+Under the Nurse class, create a new instance of Nurse and save it to a constant variable named nurseOlynyk. Pass in the following values for each property:
+
+name: 'Olynyk'
+certifications: ['Trauma', 'Pediatrics']
