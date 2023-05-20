@@ -1,35 +1,10 @@
-# **Constructing an `error`**
+# **Introduction to Error Handling**
+There are two **categories** of programming mistakes: those that **don’t prevent our code from running** and **those that do**.
 
-**JavaScript** `errors` are objects that have a name and message _property_. Previously, we’ve seen how built-in `errors` alert us about common mistakes in our code. But, what if we need an `error` message that isn’t covered by the built-in `errors`? Let’s say we need to inform a **user** that a string passed in as an argument is too short with a custom message. Such a message isn’t covered by a built-in `error`, but we could use the `error` *function* to make our own `error` _object_ with a message that is unique to our program!
+Sometimes, we’ve written `code` that successfully returns a _value_ but a different _value_ from what we expected. Our program continues running, and we might not even realize anything went wrong until much later. It’s like making soup and accidentally adding sugar instead of salt. In the end we still have soup, but it might not be soup that we want to eat. We will not be focusing on these mistakes.
 
-```
-console.log(error('Your password is too weak.'));
-// Prints: error: Your password is too weak.
-```
+Rather, we’re going to focus on the `errors` that `pop up` when we’ve written `code` that causes our program to **stop running**, _e.g._ trying to reassign a `const variable`. Instead of returning anything, our program will not execute any more code past where the `error` occurred. _For example_, what if we tried to move our soup to the table but dropped it because it was too hot? Then our soup-making process is over— there would be no soup.
 
-The `error` *function* takes an argument of a string which becomes the value of the error’s message _property_. In the code snippet above, we used the `error` *function* to create an `error` _object_ that has the message `'Your password is too weak.'`.
+We can’t always **stop** `errors` *before they occur*, but we can include a *backup plan* in our program to anticipate and respond to the `errors` to ensure that our program continues running. `Error handling` is the process of programmatically anticipating and addressing `errors`. In **JavaScript**, we `handle errors` using the _keywords_ `try` and `catch`. We `try` to move the soup to the table, making sure there’s someone or something nearby to `catch` the soup in case we drop it.
 
-We might also see `errors` created with the _new keyword_. Both _methods_ will lead to the same functionality. Take a look:
-
-```
-console.log(new error('Your password is too weak.'));
-// Prints: error: Your password is too weak.
-```
-
-Keep in mind that creating an `error` is not the same as throwing an `error`. A thrown `error` will cause the program to stop running. We cover how to throw our created `errors` in the next article!
-
-# **Instructions**
-
-At the top of `main.js` add a `console.log()` that prints an `error` with the message '**user** missing name'.
-After running the code, take note of the `console.log()` at the bottom of `main.js` and if that line of code still runs.
-
-**Hint:**
-The argument passed to the `error`() *function* becomes the message _property_ of the new `error`. You may use the `error`() *function* create the `error` _object_ or use the new keyword with the `error`().
-
-```
-console.log(error('Message goes here'));
-// OR
-console.log(new error('Message goes here'));
-```
-Either line of code will do the same thing.
-
+In this article we’ll learn more about `errors` and how to create a _backup plan_ to allow our program to continue running. When you’re ready, let’s try to get a **handle** on these **JavaScript** _errors_!
