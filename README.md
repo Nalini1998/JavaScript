@@ -1,96 +1,84 @@
-# **FOR YOUR INFORMATION**
-Here is the codespace for my JavaScript Project; Theories; Issues; Discussions, etc...
+# **The Node `setTimeout()` Function**    
 
-## **JavaScript on the Web**
-**JavaScript**, also called **JS**, is a flexible and powerful language that is implemented consistently by various _web browsers_, making it the language for _web development_. **JavaScript**, **HTML**, and **CSS** are the **core components** of _web technology_;
+Knowing ***how to construct a `promise`*** is useful, but most of the time, knowing how to consume, or use, `promises` will be key. Rather than constructing `promises`, you’ll be handling `promise` objects returned to we as the result of an asynchronous operation. These `promises` will start off pending but settle eventually.
 
-While **HTML** is responsible for _structure_ and **CSS** is responsible for _style_, **JavaScript** provides _interactivity_ to web pages in the browser.
+Moving forward, we’ll be simulating this by providing we with functions that return `promises` which settle after some time. 
+<details>
+<summary>
+To accomplish this, we’ll be using `setTimeout()`. `setTimeout()` is a `Node API` _(a comparable API is provided by web browsers)_ that uses callback functions to schedule tasks to be performed after a delay. `setTimeout()` has two parameters: a callback function and a delay in ***milliseconds***. </summary>
 
-## **Popularity of JavaScript**
-*In short, ***JavaScript*** became a _hit_ because it turned _web browsers_ into _application platforms_. Here’s how:*
+```
+const delayedHello = () => {
+  console.log('Hi! This is an asynchronous greeting!');
+};
+ 
+setTimeout(delayedHello, 2000);
+```
+</details>
 
-_+_ **JavaScript** can be used in both the _front-end_ and _back-end_ of _web development_;
 
-_+_ **JavaScript** is standardized so it’s frequently updated with new versions;
+Here, we invoke `setTimeout()` with the callback function `delayedHello()` and 2000. In at least two seconds `delayedHello()` will be invoked. But why is it “at least” two seconds and not exactly two seconds?
 
-_+_ **JavaScript** integrates easily with **HTML** and **CSS**;
+This delay is performed asynchronously—the rest of our program won’t stop executing during the delay. Asynchronous JavaScript uses something called the *event-loop*. 
 
-_+_ **JavaScript** allows _websites_ to have ***interactivity*** like scroll transitions and object movement. Modern browsers still compete to process **JavaScript** the fastest for the best `user` experiences. _Chrome_, the most used _Internet browser_ in 2017, has been so successful because of its ability to process **JavaScript** quickly;
+After two seconds, `delayedHello()` is added to a line of code waiting to be run. Before it can run, any synchronous code from the program will run. 
 
-_+_ **JavaScript** offers a wide range of _frameworks_ and _libraries_ that help Developers create _complex applications_ with low overhead. Programmers can `import` `libraries` and `frameworks` in their `code` to augment their `application’s functionality`.
+Next, any code in front of it in the line will run. This means it might be more than two seconds before `delayedHello()` is actually executed.
+<details>
+<summary>
+Let’s look at how we’ll be using `setTimeout()` to construct asynchronous `promises`:
+</summary>
 
-## **JavaScript for Servers**
+```
+const returnPromiseFunction = () => {
+  return new `promise`((resolve, reject) => {
+    setTimeout(( ) => {resolve('I resolved!')}, 1000);
+  });
+};
+ 
+const prom = returnPromiseFunction();
+```
+</details>
 
-_-_ In the early 2000s, big platforms like **Facebook** and **Google** began using ***JavaScript*** in their _back-end server logic_ to process and respond to _front-end requests_. **JavaScript** helped businesses scale since Engineers who knew ***JavaScript**** could apply those skills in a _back-end context_;
+In the example code, we invoked `returnPromiseFunction()` which returned a `promise`. We assigned that `promise` to the variable `prom`. Similar to the _asynchronous_ `promises` we may encounter in production, prom will initially have a status of pending.
 
-_+_ **JavaScript** used for `servers`, also known as `server-side JavaScript`, gained popularity because it allowed for scalability. In the `server`, **JavaScript** can be integrated with _other languages_ to **communicate** with `databases`;
 
-_+_ `Node.JS`, or `Node`, is one of the most popular versions of `server-side JavaScript`. `Node` has been used to write large platforms for **NASA**, **eBay** and many others. Since **JavaScript** can execute `programs` out of sequential order, `Node` can be used to create scalable _web applications_, _messaging platforms_, and _multiplayer games_. This is why **Google Cloud** and **Amazon Web Service** depend on `Node` for some of their services.
+# **Instructions**
+<details>
+ 
+**<summary> 1. Create a function, usingSTO() have no parameters**
 
-## **What Else Can JavaScript Do?**
+Inside the function body, it should print a string to the `console`. This can be any string we want _(as long as it’s not either `"This is the first line of synchronous code."` or `"This is the last line of synchronous code."`)._ </summary>
 
-_-_ Beyond the _web_, **JavaScript** has a large presence amongst _cross-platform applications_. We use some popular standalone _desktop apps_ like **Slack**, **GitHub**, **Skype**, and **Tidal**. These _applications_ are developed with the **JavaScript** _framework_ called `Electron.js`. `Electron` is excellent for making _desktop applications_ that need to work across different **devices** regardless of **operating system**;
+**Hint:**
+We can print any string we want!
 
-_+_ In addition, **JavaScript** has the potential of expanding into other innovative technologies such as virtual reality and gaming. **JavaScript** can be used for _animating_, _rendering_ and _scaling_. **JavaScript** even has contributed to the _internet_ of things, the technology that makes simple `objects`, like your fridge, smarter. Everyday **devices** can become _interactive_ and collect data using **JavaScript** _libraries_.
+```
+const ourFunction = () => {
+  console.log('Yay! Coding is so fun!!');
+};
+```
+</details>
 
-## **Requirement**
-_-_ This _module_ requires no _modules_ outside of `Node.JS` core.
-_-_ I will update the _module_ requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+<details>
 
-## **Installation**
-_-_ ***Install*** as you would normally _install_ a contributed _module_ of itself. 
+**<summary>2. Now, let’s invoke the setTimeout() function** 
 
-## **Configuration**
-_-_ The _module_ has no menu or modifiable settings. There is no configuration. When
-enabled, the _module_ will **prevent** the _links_ from appearing. To **get** the _links_
-back, **disable** the _module_ and **clear** _caches_.
+Remember, `setTimeout()` has two parameters. Invoke `setTimeout()` with our `usingSTO()` function as the first argument and a number between 0 and 3000 as the second argument.
+</summary>
 
-## **Information for Developers**
-_-_ The **Search API** provides a lot of ways for Developers to **extend** or **customize** the
-_framework_.
+**Hint:**
+We should pass in `usingSTO()` without invoking it.
+`setTimeout(myCallbackFunction, 2000)`
 
-## **Troubleshooting**
-*Whether the menu does not display, check the following:*
-_-_ Are the _"Access administration menu"_ and _"Use the administration pages and
-  help"_ permissions enabled for the appropriate roles?
-- Does `html.tpl.php` of your **theme output** the `$page_bottom` variable?
+</details>
 
-## **FAQ**
+<details>
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need. **Customerror** returns the correct `HTTP
-status` codes _(403 and 404)_. This will prevent robots from indexing the
-`error` pages.
+**<summary>3. Type node app.js in the terminal and hit enter**
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+Type `node app.js` in the **terminal** and hit **enter**
+</summary>
+_-_ See if the program’s output in the **terminal** lines up with what we expected.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
-
-## **Contribution**
-_-_ **Pull requests** are welcome. For major changes, please open an **issue** first
-to **discuss** what you would like to change.
-_-_ Please make sure to **update tests** as appropriate.
-
-## **Related License**
-_-_ [MIT](https://choosealicense.com/licenses/mit/)
-
-## **MIT License:**
-Reference documents of Mr. Othneil Drew [https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt].
-
-*- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files _(the "Software")_, to deal in the _Software_ without restriction, including without limitation the rights to _use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies_ of the _Software_, and to _permit persons_ to whom the _Software_ is furnished to do so, _subject_ to the following conditions:*
-
-*- The above **copyright** notice and this permission notice shall be included in all copies or substantial portions of the _Software_.*
-
-*- THE SOFTWARE IS PROVIDED _"AS IS"_, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
-
-#### [**Copyright (c) _20 April 2023 by Nalini Vo_**]
+</details>
