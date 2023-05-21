@@ -1,96 +1,149 @@
-# **FOR YOUR INFORMATION**
-Here is the codespace for my JavaScript Project; Theories; Issues; Discussions, etc...
+# **Concurrency Model and **Event Loop** in **JavaScript****
 
-## **JavaScript on the Web**
-**JavaScript**, also called **JS**, is a flexible and powerful language that is implemented consistently by various _web browsers_, making it the language for _web development_. **JavaScript**, **HTML**, and **CSS** are the **core components** of _web technology_;
+### **How JavaScript uses its **Event Loop** to emulate concurrency?**
 
-While **HTML** is responsible for _structure_ and **CSS** is responsible for _style_, **JavaScript** provides _interactivity_ to web pages in the browser.
+If you’ve learned about **asynchronous** programming, you may wonder how your code can actually be non-blocking and move on to other tasks while it waits for **asynchronous** operations to complete. This article will remove some of the abstractions about how **JavaScript** can emulate concurrency by looking at what’s going on with the **Event Loop** behind the scenes. But what exactly is the **Event Loop**? 
 
-## **Popularity of JavaScript**
-*In short, ***JavaScript*** became a _hit_ because it turned _web browsers_ into _application platforms_. Here’s how:*
+*And why do we need it?*
 
-_+_ **JavaScript** can be used in both the _front-end_ and _back-end_ of _web development_;
+### **Why Do We Need an Event Loop?**
 
-_+_ **JavaScript** is standardized so it’s frequently updated with new versions;
+**JavaScript** is a single-threaded language, which means that two statements can’t be executed simultaneously. 
 
-_+_ **JavaScript** integrates easily with **HTML** and **CSS**;
+**For example**, if you have a for loop that takes a while to process, it’ll have to finish executing before the rest of your code runs. That results in blocking code. But as we already learned, we can run non-blocking code in **JavaScript**, which is where the **Event Loop** comes in. 
 
-_+_ **JavaScript** allows _websites_ to have ***interactivity*** like scroll transitions and object movement. Modern browsers still compete to process **JavaScript** the fastest for the best `user` experiences. _Chrome_, the most used _Internet browser_ in 2017, has been so successful because of its ability to process **JavaScript** quickly;
+**Input/output (I/O)** is handled with events and callbacks so code execution can continue. Let’s look at an example of blocking and non-blocking code. Run this block of code yourself locally.
+```
+console.log("I'm learning about");
+ 
+for (let idx=0; idx < 999999999; idx++) {}
+ 
+// The second console.log() statement is
+// delayed by the for loop's execution
+console.log("the **Event Loop**");
+```
 
-_+_ **JavaScript** offers a wide range of _frameworks_ and _libraries_ that help Developers create _complex applications_ with low overhead. Programmers can `import` `libraries` and `frameworks` in their `code` to augment their `application’s functionality`.
+*The example above has **synchronous** code with a long for loop. Here’s what happens:*
 
-## **JavaScript for Servers**
+The code executes and `“I’m learning about”` is logged to the `console`.
 
-_-_ In the early 2000s, big platforms like **Facebook** and **Google** began using ***JavaScript*** in their _back-end server logic_ to process and respond to _front-end requests_. **JavaScript** helped businesses scale since Engineers who knew ***JavaScript**** could apply those skills in a _back-end context_;
+Next, a for loop executes and runs 999999999 loops, which results in blocking code. If you run this locally, this is where the pause happens.
+Finally, `“the Event Loop”` is logged.
 
-_+_ **JavaScript** used for `servers`, also known as `server-side JavaScript`, gained popularity because it allowed for scalability. In the `server`, **JavaScript** can be integrated with _other languages_ to **communicate** with `databases`;
+Now let’s take a look at the non-blocking example. There are functions like `setTimeout()` that work differently thanks to the **Event Loop**. Run the code:
+```
+console.log("I’m learning about");
+setTimeout(() => { console.log("**Event Loop**");}, 2000);
+console.log("the");
+```
+In this case, the code snippet uses the `setTimeout()` function to demonstrate how **JavaScript** can be non-blocking with use of the **Event Loop**. 
 
-_+_ `Node.JS`, or `Node`, is one of the most popular versions of `server-side JavaScript`. `Node` has been used to write large platforms for **NASA**, **eBay** and many others. Since **JavaScript** can execute `programs` out of sequential order, `Node` can be used to create scalable _web applications_, _messaging platforms_, and _multiplayer games_. This is why **Google Cloud** and **Amazon Web Service** depend on `Node` for some of their services.
+_Here’s what happens:_
 
-## **What Else Can JavaScript Do?**
+- A statement is logged;
 
-_-_ Beyond the _web_, **JavaScript** has a large presence amongst _cross-platform applications_. We use some popular standalone _desktop apps_ like **Slack**, **GitHub**, **Skype**, and **Tidal**. These _applications_ are developed with the **JavaScript** _framework_ called `Electron.js`. `Electron` is excellent for making _desktop applications_ that need to work across different **devices** regardless of **operating system**;
+- The `setTimeout()` function is executed;
 
-_+_ In addition, **JavaScript** has the potential of expanding into other innovative technologies such as virtual reality and gaming. **JavaScript** can be used for _animating_, _rendering_ and _scaling_. **JavaScript** even has contributed to the _internet_ of things, the technology that makes simple `objects`, like your fridge, smarter. Everyday **devices** can become _interactive_ and collect data using **JavaScript** _libraries_.
+- A third line of code executes and logs text: `"the"`;
 
-## **Requirement**
-_-_ This _module_ requires no _modules_ outside of `Node.JS` core.
-_-_ I will update the _module_ requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+- Finally, the `setTimeout()` function timer completes and additional text is logged: `“Event Loop”`;
 
-## **Installation**
-_-_ ***Install*** as you would normally _install_ a contributed _module_ of itself. 
+- In this case, **JavaScript** is still single-threaded, but the **Event Loop** is enabling something called concurrency.
 
-## **Configuration**
-_-_ The _module_ has no menu or modifiable settings. There is no configuration. When
-enabled, the _module_ will **prevent** the _links_ from appearing. To **get** the _links_
-back, **disable** the _module_ and **clear** _caches_.
+# **Concurrency in JavaScript**
 
-## **Information for Developers**
-_-_ The **Search API** provides a lot of ways for Developers to **extend** or **customize** the
-_framework_.
+Usually when we think about concurrency in programming, it means that two or more procedures are executed at the same time on the same shared resources. Since **JavaScript** is single-threaded, as we saw in the for loop example, we’ll never have that flavor of `"true"` concurrency. However, we can emulate concurrency using the **Event Loop**.
 
-## **Troubleshooting**
-*Whether the menu does not display, check the following:*
-_-_ Are the _"Access administration menu"_ and _"Use the administration pages and
-  help"_ permissions enabled for the appropriate roles?
-- Does `html.tpl.php` of your **theme output** the `$page_bottom` variable?
+# **What Is the Event Loop?**
+At a high level, the **Event Loop** is a system for managing code execution. In the diagram, you can see an overview of how the parts that make up the **Event Loop** fit together.
 
-## **FAQ**
+We have **data structures** that we call the heap and the call stack, which are part of the **JavaScript** engine. The heap and call stack interact with **Node** and **Web APIs**, which pass messages back to the stack via an `event queue`. 
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need. **Customerror** returns the correct `HTTP
-status` codes _(403 and 404)_. This will prevent robots from indexing the
-`error` pages.
+The event queue’s interaction with the call stack is managed by an **Event Loop**. All together, those parts maintain the order of code execution when we run **asynchronous** functions. Don’t worry about understanding what those terms mean yet–we’ll dive into them shortly.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+# **Understand the Components of the Event Loop**
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+The **Event Loop** is made up of these parts:
 
-## **Contribution**
-_-_ **Pull requests** are welcome. For major changes, please open an **issue** first
-to **discuss** what you would like to change.
-_-_ Please make sure to **update tests** as appropriate.
+- Memory Heap;
 
-## **Related License**
-_-_ [MIT](https://choosealicense.com/licenses/mit/)
+- Call Stack;
 
-## **MIT License:**
-Reference documents of Mr. Othneil Drew [https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt].
+- Event Queue;
 
-*- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files _(the "Software")_, to deal in the _Software_ without restriction, including without limitation the rights to _use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies_ of the _Software_, and to _permit persons_ to whom the _Software_ is furnished to do so, _subject_ to the following conditions:*
+- Event Loop;
 
-*- The above **copyright** notice and this permission notice shall be included in all copies or substantial portions of the _Software_.*
+- Node or Web APIs.
 
-*- THE SOFTWARE IS PROVIDED _"AS IS"_, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
+_Let’s take a closer look at each part before we put it all together._
 
-#### [**Copyright (c) _20 April 2023 by Nalini Vo_**]
+
+# **The Heap**
+The heap is a block of memory where we store objects in an unordered manner. **JavaScript** variables and objects that are currently in use are stored in the heap.
+
+# **The Call Stack**
+The stack, or call stack, tracks what function is currently being run in your code.
+
+When you invoke a function, a frame is added to the stack. Frames connect that function’s arguments and local variables from the heap. Frames enter the stack in a last in, first out _(LIFO)_ order. In the code snippet below, a series of nested functions are declared, then `foo()` is called and logged.
+
+```
+function foo() {
+ return function bar() {
+   return function baz() {
+     return 'I love CodeCademy'
+   }
+ }
+}
+console.log(foo()()());
+```
+
+The function executing at any given point in time is at the top of the stack. In our example code, since we have nested functions, they will all be added to the stack until the innermost function has been executed. When the function finishes executing e.g. returns, its frame is removed from the stack. When we execute `console.log(foo()()())`, we’d see the stack build as follows:
+
+You might have noticed that `global()` is at the bottom of the stack–when you first initiate a program, the global execution context is added to the call stack, which contains the global variable and lexical environment. Each subsequent frame for a called function has a function execution context that includes the function’s lexical and variable environment.
+
+So when we say the call stack tracks what function is currently being run in our code, what we are tracking is the current execution context. When a function runs to completion, it is popped off of the call stack. The memory, or the frame, is cleared.
+
+The Event Queue
+The event queue is a list of messages corresponding to functions that are waiting to be processed. In the diagram, these messages are entering the event queue from sources such as various web APIs or async functions that were called and are returning additional events to be handled by the stack. Messages enter the queue in a first in, first out (FIFO) order. No code is executed in the event queue; instead, it holds functions that are waiting to be added back into the stack.
+
+# **The Event Loop**
+
+This **Event Loop** is a specific part of our overall **Event Loop** concept. Messages that are waiting in the **event queue** to be added back into the stack are added back via the **Event Loop**. When the call stack is empty, if there is anything in the **event queue**, the **Event Loop** can add those one at a time to the stack for execution.
+
+- First the **Event Loop** will poll the stack to see if it is empty;
+
+- It will add the first waiting message;
+
+- It will repeat steps 1 and 2 until the stack has cleared;
+
+- The **Event Loop** in Action;
+
+- Now that we know all of the pieces of the **Event Loop**, let’s walk through some code to understand the **Event Loop** in action.
+
+```
+console.log("This is the first line of code in app.js.");
+ 
+function usingsetTimeout() {
+    console.log("I'm going to be queued in the **Event Loop**.");
+}
+setTimeout(usingsetTimeout, 3000);
+ 
+console.log("This is the last line of code in app.js.");
+```
+
+`console.log("This is the first line of code in app.js.");` is added to the stack, executes, then pops off of the stack.
+`setTimeout()` is added to the stack.
+
+`setTimeout()`’s callback is passed to be executed by a **web API**. The timer will run for 3 seconds. After 3 seconds elapse, the callback function, `usingsetTimeout()` is pushed to the **Event Queue**.
+
+The **Event Loop**, meanwhile, will check periodically if the stack is cleared to handle any messages in the **Event Queue**.
+`console.log("This is the last line of code in app.js.");` is added to the stack, executes, then pops off of the stack.
+
+The stack is now empty, so the **Event Loop** pushes usingsetTimeout onto the stack.
+`console.log("I'm going to be queued in the Event Loop.");` is added to the stack, executes, gets popped
+usingsetTimeout pops off of the stack.
+
+# **Summary**
+Thanks to the **Event Loop**, **JavaScript** is a single-threaded, event-driven language that can run non-blocking code asynchronously. The **Event Loop** can be summarized as: when code is executed, it is handled by the heap and call stack, which interact with **Node** and **Web APIs**.
+
+Those **APIs** enable concurrency and pass **asynchronous** messages back to the stack via an **event queue**. The event queue’s interaction with the call stack is managed by an **Event Loop**. All together, those parts maintain the order of code execution when we run **asynchronous** functions.
