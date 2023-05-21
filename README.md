@@ -1,96 +1,109 @@
-# **FOR YOUR INFORMATION**
-Here is the codespace for my JavaScript Project; Theories; Issues; Discussions, etc...
+# **Introduction to **asynchronous** **JavaScript****
 
-## **JavaScript on the Web**
-**JavaScript**, also called **JS**, is a flexible and powerful language that is implemented consistently by various _web browsers_, making it the language for _web development_. **JavaScript**, **HTML**, and **CSS** are the **core components** of _web technology_;
+### ****asynchronous** Code in Web Development**
 
-While **HTML** is responsible for _structure_ and **CSS** is responsible for _style_, **JavaScript** provides _interactivity_ to web pages in the browser.
+_-_ **JavaScript** provides us with a seamless web browsing experience using **asynchronous** code. 
 
-## **Popularity of JavaScript**
-*In short, ***JavaScript*** became a _hit_ because it turned _web browsers_ into _application platforms_. Here’s how:*
+_-_ **Sites** often allow us to perform different interactions like scrolling through content, clicking to create a pop-up modal, typing out text, etc. 
 
-_+_ **JavaScript** can be used in both the _front-end_ and _back-end_ of _web development_;
+_-_ When a site is set up to respond to different user actions at the same time, it’s likely that this site is using **asynchronous** **JavaScript** code. Such code takes into consideration how users might use the site without blocking them _(forcing the user to wait for code from one interaction to finish before moving on to the next)_.
 
-_+_ **JavaScript** is standardized so it’s frequently updated with new versions;
+_-_ It is our job as developers to think about how much time it takes to complete a task and how to plan around that wait. 
 
-_+_ **JavaScript** integrates easily with **HTML** and **CSS**;
+_-_ **Tasks** like contacting the back-end to retrieve information, querying our database for user information, or making a `request` to an _external server_, like a 3rd party **API**, take varying amounts of time. 
 
-_+_ **JavaScript** allows _websites_ to have ***interactivity*** like scroll transitions and object movement. Modern browsers still compete to process **JavaScript** the fastest for the best `user` experiences. _Chrome_, the most used _Internet browser_ in 2017, has been so successful because of its ability to process **JavaScript** quickly;
+_-_ Since we aren’t sure when we’ll get this information back, we can use **asynchronous** code to **run** these tasks in the background. Let’s see how **JavaScript** handles **asynchronous** code.
 
-_+_ **JavaScript** offers a wide range of _frameworks_ and _libraries_ that help Developers create _complex applications_ with low overhead. Programmers can `import` `libraries` and `frameworks` in their `code` to augment their `application’s functionality`.
+### ****JavaScript** and **asynchronous** Code**
 
-## **JavaScript for Servers**
+_-_ **JavaScript** is a single-threaded language. This means it has a single thread that can carry out one task at a time. 
 
-_-_ In the early 2000s, big platforms like **Facebook** and **Google** began using ***JavaScript*** in their _back-end server logic_ to process and respond to _front-end requests_. **JavaScript** helped businesses scale since Engineers who knew ***JavaScript**** could apply those skills in a _back-end context_;
+_-_ However, **JavaScript** has what is known as the event `loop`, a specific design that allows it to perform **asynchronous** tasks even while only using a single thread _(more on this later!)_.
 
-_+_ **JavaScript** used for `servers`, also known as `server-side JavaScript`, gained popularity because it allowed for scalability. In the `server`, **JavaScript** can be integrated with _other languages_ to **communicate** with `databases`;
+_Let’s examine some examples of **asynchronous** code in **JavaScript**!_
 
-_+_ `Node.JS`, or `Node`, is one of the most popular versions of `server-side JavaScript`. `Node` has been used to write large platforms for **NASA**, **eBay** and many others. Since **JavaScript** can execute `programs` out of sequential order, `Node` can be used to create scalable _web applications_, _messaging platforms_, and _multiplayer games_. This is why **Google Cloud** and **Amazon Web Service** depend on `Node` for some of their services.
+### ****asynchronous** Callbacks**
 
-## **What Else Can JavaScript Do?**
+_-_ One common example of asynchronicity in **JavaScript** is the use of **asynchronous** callbacks. 
 
-_-_ Beyond the _web_, **JavaScript** has a large presence amongst _cross-platform applications_. We use some popular standalone _desktop apps_ like **Slack**, **GitHub**, **Skype**, and **Tidal**. These _applications_ are developed with the **JavaScript** _framework_ called `Electron.js`. `Electron` is excellent for making _desktop applications_ that need to work across different **devices** regardless of **operating system**;
+_-_ This is a type of callback function that executes after a specific condition is met and runs concurrently to any other code currently running. 
 
-_+_ In addition, **JavaScript** has the potential of expanding into other innovative technologies such as virtual reality and gaming. **JavaScript** can be used for _animating_, _rendering_ and _scaling_. **JavaScript** even has contributed to the _internet_ of things, the technology that makes simple `objects`, like your fridge, smarter. Everyday **devices** can become _interactive_ and collect data using **JavaScript** _libraries_.
+*Let’s look at an example*:
+```
+easterEgg.addEventListener('click', () => {
+  console.log('Up, Up, Down, Down, Left, Right, Left, Right, B, A');
+});
+```
+_-_ In the code above, the function passed as the second argument of `.addEventListener()` is an **asynchronous** callback — this function doesn’t execute until the `easterEgg` is clicked.
 
-## **Requirement**
-_-_ This _module_ requires no _modules_ outside of `Node.JS` core.
-_-_ I will update the _module_ requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+### **setTimeout**
 
-## **Installation**
-_-_ ***Install*** as you would normally _install_ a contributed _module_ of itself. 
+_-_ In addition to **asynchronous** callbacks, **JavaScript** provides a handful of built-in functions that can perform tasks **asynchronously**. One function that is commonly used is the `setTimeout()` function.
 
-## **Configuration**
-_-_ The _module_ has no menu or modifiable settings. There is no configuration. When
-enabled, the _module_ will **prevent** the _links_ from appearing. To **get** the _links_
-back, **disable** the _module_ and **clear** _caches_.
+_-_ With `setTimeout()` we can write code that tells our **JavaScript** program to wait a **minimum amount of time** before executing its **callback function**. 
 
-## **Information for Developers**
-_-_ The **Search API** provides a lot of ways for Developers to **extend** or **customize** the
-_framework_.
+*Take a look at this example:*
 
-## **Troubleshooting**
-*Whether the menu does not display, check the following:*
-_-_ Are the _"Access administration menu"_ and _"Use the administration pages and
-  help"_ permissions enabled for the appropriate roles?
-- Does `html.tpl.php` of your **theme output** the `$page_bottom` variable?
+```
+setTimeout(() => {
+  console.log('Delay the printing of this string, please.');
+}, 1000);
+```
 
-## **FAQ**
+_-_ Notice that `setTimeout()` takes 2 arguments, a callback function and a number specifying how long to wait before executing the function. 
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need. **Customerror** returns the correct `HTTP
-status` codes _(403 and 404)_. This will prevent robots from indexing the
-`error` pages.
+_In the example above, the function will print `'Delay the printing of this string, please.'` after 1000 milliseconds (or 1 second) have passed._
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+_-_ Since `setTimeout()` is non-blocking, we can be executing multiple lines of code at the same time! . Imagine if we had a program like this:
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+```
+setTimeout(() => {
+  console.log('Delay the printing of this string, please.');
+}, 1000);
+console.log('Doing important stuff.');
+console.log('Still doing important stuff.'); 
+```
 
-## **Contribution**
-_-_ **Pull requests** are welcome. For major changes, please open an **issue** first
-to **discuss** what you would like to change.
-_-_ Please make sure to **update tests** as appropriate.
+**Which outputs:**
+```
+'Doing important stuff.'
+'Still doing important stuff.' 
+'Delay the printing of this string, please.'
+```
+_-_ If we take a closer look at the **output**, we’ll see that our `setTimeout()`‘s callback function didn’t execute until after our other very important `console.log()` statements were executed.
 
-## **Related License**
-_-_ [MIT](https://choosealicense.com/licenses/mit/)
+_-_ In web development, this means we can write code to wait for an event to trigger all while a user goes on interacting with our app. 
 
-## **MIT License:**
-Reference documents of Mr. Othneil Drew [https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt].
+_-_ One such example could be if a user goes to a shopping site and gets notified that an item is up for sale and only for a limited time. 
 
-*- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files _(the "Software")_, to deal in the _Software_ without restriction, including without limitation the rights to _use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies_ of the _Software_, and to _permit persons_ to whom the _Software_ is furnished to do so, _subject_ to the following conditions:*
+_-_ Our **asynchronous** code could allow the user to interact with our site and when the sale timer expires, our code will remove the sale item.
 
-*- The above **copyright** notice and this permission notice shall be included in all copies or substantial portions of the _Software_.*
+### **`setInterval()`**
 
-*- THE SOFTWARE IS PROVIDED _"AS IS"_, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
+_-_ Another common built-in function is `setInterval()` which also takes a callback function and a number specifying how often the callback function should execute. 
 
-#### [**Copyright (c) _20 April 2023 by Nalini Vo_**]
+**For example:**
+```
+setInterval(() => {
+  alert('Are you paying attention???')
+}, 300000)
+```
+_-_ The `setInterval()` would call the `alert()` function and show a pop-up message of `'Are you paying attention???'` every 300000 milliseconds _(or 5 minutes)_. 
+
+**Note**: Please don’t actually do this in your apps, thank you.
+
+_-_ While we wait for our `alert` to chime in every 5 minutes, our users could still use our `app`! 
+
+**Note**: Again, please don’t do this.
+
+_-_ With `setInterval()`, we can programmatically create an alarm, a countdown timer, set the frequency of an animation, and so much more!
+
+### **Review**
+
+_-_ **asynchronous** code can really benefit ***sites*** and ***apps*** that rely on actions that take time;
+
+_-_ Even though **JavaScript** is a single-threaded language, it can still execute **asynchronous** code using the event _loop_;
+
+_-_ We took a look at some of the main ways **JavaScript** accomplishes asynchronicity via callbacks, `setTimeout()`, and `setInterval()`. 
+
+_With this new knowledge, let’s continue to implement asynchronicity into our programs!_
