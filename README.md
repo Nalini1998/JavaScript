@@ -1,96 +1,88 @@
-# **FOR YOUR INFORMATION**
-Here is the codespace for my JavaScript Project; Theories; Issues; Discussions, etc...
+# **Chaining Multiple `promises`**
 
-## **JavaScript on the Web**
-**JavaScript**, also called **JS**, is a flexible and powerful language that is implemented consistently by various _web browsers_, making it the language for _web development_. **JavaScript**, **HTML**, and **CSS** are the **core components** of _web technology_;
+One common pattern we’ll see with **asynchronous** programming is multiple operations which depend on each other to execute or that must be executed in a certain `order`. We might make one request to a database and use the data returned to us to make another request and so on!
 
-While **HTML** is responsible for _structure_ and **CSS** is responsible for _style_, **JavaScript** provides _interactivity_ to web pages in the browser.
+_Let’s illustrate this with another cleaning example, washing clothes:_
 
-## **Popularity of JavaScript**
-*In short, ***JavaScript*** became a _hit_ because it turned _web browsers_ into _application platforms_. Here’s how:*
+_-_ We take our dirty clothes and put them in the washing machine. If the clothes are cleaned, then we’ll want to put them in the dryer. After the dryer runs, if the clothes are dry, then we can fold them and put them away.
 
-_+_ **JavaScript** can be used in both the _front-end_ and _back-end_ of _web development_;
+_-_ This process of chaining `promises` together is called composition. `promises` are designed with composition in mind! Here’s a simple `promise` chain in code:
 
-_+_ **JavaScript** is standardized so it’s frequently updated with new versions;
 
-_+_ **JavaScript** integrates easily with **HTML** and **CSS**;
+```
+firstPromiseFunction()
+.then((firstResolveVal) => {
+  return secondPromiseFunction(firstResolveVal);
+})
+.then((secondResolveVal) => {
+  console.log(secondResolveVal);
+});
+```
 
-_+_ **JavaScript** allows _websites_ to have ***interactivity*** like scroll transitions and object movement. Modern browsers still compete to process **JavaScript** the fastest for the best `user` experiences. _Chrome_, the most used _Internet browser_ in 2017, has been so successful because of its ability to process **JavaScript** quickly;
+***Let’s break down what’s happening in the example:***
 
-_+_ **JavaScript** offers a wide range of _frameworks_ and _libraries_ that help Developers create _complex applications_ with low overhead. Programmers can `import` `libraries` and `frameworks` in their `code` to augment their `application’s functionality`.
+- We invoke a function `firstPromiseFunction()` which returns a `promise`;
 
-## **JavaScript for Servers**
+- We invoke `.then()` with an anonymous function as the _success handler_;
 
-_-_ In the early 2000s, big platforms like **Facebook** and **Google** began using ***JavaScript*** in their _back-end server logic_ to process and respond to _front-end requests_. **JavaScript** helped businesses scale since Engineers who knew ***JavaScript**** could apply those skills in a _back-end context_;
+- Inside the _success handler_ we return a new `promise` - the result of invoking a second function, `secondPromiseFunction()` with the first promise’s resolved value;
 
-_+_ **JavaScript** used for `servers`, also known as `server-side JavaScript`, gained popularity because it allowed for scalability. In the `server`, **JavaScript** can be integrated with _other languages_ to **communicate** with `databases`;
+- We invoke a second `.then()` to handle the logic for the second `promise` settling;
 
-_+_ `Node.JS`, or `Node`, is one of the most popular versions of `server-side JavaScript`. `Node` has been used to write large platforms for **NASA**, **eBay** and many others. Since **JavaScript** can execute `programs` out of sequential order, `Node` can be used to create scalable _web applications_, _messaging platforms_, and _multiplayer games_. This is why **Google Cloud** and **Amazon Web Service** depend on `Node` for some of their services.
+- Inside that `.then()`, we have a _success handler_ which will `log` the second promise’s resolved value to the `console`;
 
-## **What Else Can JavaScript Do?**
+- In order for our chain to work properly, we had to return the `promise` `secondPromiseFunction(firstResolveVal)`. This ensured that the return value of the **first** `.then()` was our **second** `promise` rather than the default return of a new `promise` with the same settled value as the initial.
 
-_-_ Beyond the _web_, **JavaScript** has a large presence amongst _cross-platform applications_. We use some popular standalone _desktop apps_ like **Slack**, **GitHub**, **Skype**, and **Tidal**. These _applications_ are developed with the **JavaScript** _framework_ called `Electron.js`. `Electron` is excellent for making _desktop applications_ that need to work across different **devices** regardless of **operating system**;
 
-_+_ In addition, **JavaScript** has the potential of expanding into other innovative technologies such as virtual reality and gaming. **JavaScript** can be used for _animating_, _rendering_ and _scaling_. **JavaScript** even has contributed to the _internet_ of things, the technology that makes simple `objects`, like your fridge, smarter. Everyday **devices** can become _interactive_ and collect data using **JavaScript** _libraries_.
+***Let’s write some promise chains!***
 
-## **Requirement**
-_-_ This _module_ requires no _modules_ outside of `Node.JS` core.
-_-_ I will update the _module_ requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
 
-## **Installation**
-_-_ ***Install*** as you would normally _install_ a contributed _module_ of itself. 
+# **Instructions**
 
-## **Configuration**
-_-_ The _module_ has no menu or modifiable settings. There is no configuration. When
-enabled, the _module_ will **prevent** the _links_ from appearing. To **get** the _links_
-back, **disable** the _module_ and **clear** _caches_.
+#### **1. We require in three functions: `checkInventory()`, `processPayment()`, `shipOrder()`. These functions each return a `promise`**
 
-## **Information for Developers**
-_-_ The **Search API** provides a lot of ways for Developers to **extend** or **customize** the
-_framework_.
+> `checkInventory()` expects an order argument and returns a `promise`. If there are enough items in stock to fill the `order`, the `promise` will `resolve` to an array. The first element in the resolved value array will be the same `order` and the second element will be the total cost of the `order` as a number.
 
-## **Troubleshooting**
-*Whether the menu does not display, check the following:*
-_-_ Are the _"Access administration menu"_ and _"Use the administration pages and
-  help"_ permissions enabled for the appropriate roles?
-- Does `html.tpl.php` of your **theme output** the `$page_bottom` variable?
+> `processPayment()` expects an array argument with the `order` as the first element and the purchase total as the second. This function returns a `promise`. If there is a large enough balance on the giftcard associated with the `order`, it will `resolve` to an array. The first element in the resolved value array will be the same `order` and the second element will be a tracking number.
 
-## **FAQ**
+> `shipOrder()` expects an array argument with the `order` as the first element and a tracking number as the second. It returns a `promise` which resolves to a string confirming the order has shipped.
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need. **Customerror** returns the correct `HTTP
-status` codes _(403 and 404)_. This will prevent robots from indexing the
-`error` pages.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+#### **2. Invoked `checkInventory()` with order & chained a `.then()` function to it**
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
 
-## **Contribution**
-_-_ **Pull requests** are welcome. For major changes, please open an **issue** first
-to **discuss** what you would like to change.
-_-_ Please make sure to **update tests** as appropriate.
+> We set up a `promise` chain but it’s missing a couple important lines of code to make it function properly.
 
-## **Related License**
-_-_ [MIT](https://choosealicense.com/licenses/mit/)
+> We invoked `checkInventory()` with `order` and chained a `.then()` function to it. This `.then()` has an anonymous function as its _success handler_, but it’s missing a `return` statement.
 
-## **MIT License:**
-Reference documents of Mr. Othneil Drew [https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt].
+> The _success handler_ should `return` a `processPayment()` `promise`.
 
-*- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files _(the "Software")_, to deal in the _Software_ without restriction, including without limitation the rights to _use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies_ of the _Software_, and to _permit persons_ to whom the _Software_ is furnished to do so, _subject_ to the following conditions:*
+> **Hint:**
+The `processPayment()` function should be invoked with `resolvedValueArray`, the anonymous function’s parameter. This will return the expected `promise` to the next step in the chain.
+If we had used a named function instead, here’s how it might look:
 
-*- The above **copyright** notice and this permission notice shall be included in all copies or substantial portions of the _Software_.*
+```
+const myFirstSuccessHandler = (`resolvedValueArray`) => {
+  return processPayment(`resolvedValueArray`);
+};
+```
 
-*- THE SOFTWARE IS PROVIDED _"AS IS"_, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
+#### **3. We have a second `.then()` function on the chain**
 
-#### [**Copyright (c) _20 April 2023 by Nalini Vo_**]
+> This `.then()` also has an anonymous function as its _success handler_ and is missing a return statement.
+
+> The _success handler_ should return a `shipOrder()` `promise`.
+
+>**Hint:**
+The `shipOrder()` function should be invoked with `resolvedValueArray`, the anonymous function’s parameter. 
+
+>This will return the expected `promise` to the next step in the chain. 
+If we had used a named function instead, here’s how it might look:
+
+```
+const mySecondSuccessHandler = (resolvedValueArray) => {
+  return shipOrder(resolvedValueArray);
+};
+```
+
+#### **4. Type node app.js in the terminal and hit enter**
