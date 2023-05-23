@@ -1,96 +1,98 @@
-# **FOR YOUR INFORMATION**
-Here is the codespace for my JavaScript Project; Theories; Issues; Discussions, etc...
+# **Using promise.all()**
 
-## **JavaScript on the Web**
-**JavaScript**, also called **JS**, is a flexible and powerful language that is implemented consistently by various _web browsers_, making it the language for _web development_. **JavaScript**, **HTML**, and **CSS** are the **core components** of _web technology_;
+When done correctly, `promise` composition is a great way to handle situations where _asynchronous_ operations depend on each other or execution order matters. 
 
-While **HTML** is responsible for _structure_ and **CSS** is responsible for _style_, **JavaScript** provides _interactivity_ to web pages in the browser.
+_What if we’re dealing with ***multiple promises***, but we don’t need to care about the order? Let’s think in terms of cleaning again._
 
-## **Popularity of JavaScript**
-*In short, ***JavaScript*** became a _hit_ because it turned _web browsers_ into _application platforms_. Here’s how:*
+> For us to consider our house clean, we need our clothes to dry, our trash bins emptied, and the dishwasher to run. We need all of these tasks to complete but not in any particular order. Furthermore, since they’re all getting done asynchronously, they should really all be happening at the same time!
 
-_+_ **JavaScript** can be used in both the _front-end_ and _back-end_ of _web development_;
+To maximize efficiency we should use `concurrency`, **multiple asynchronous** operations happening together. With `promises`, we can do this with the function `promise.all()`.
 
-_+_ **JavaScript** is standardized so it’s frequently updated with new versions;
+`promise.all()` accepts an array of `promises` as its argument and returns a single `promise`. That single `promise` will settle in one of two ways:
 
-_+_ **JavaScript** integrates easily with **HTML** and **CSS**;
+If every `promise` in the argument array `resolves, the single `promise` returned from `promise`.all() will `resolve` with an array containing the `resolve` value from each `promise` in the argument array.
 
-_+_ **JavaScript** allows _websites_ to have ***interactivity*** like scroll transitions and object movement. Modern browsers still compete to process **JavaScript** the fastest for the best `user` experiences. _Chrome_, the most used _Internet browser_ in 2017, has been so successful because of its ability to process **JavaScript** quickly;
+If any `promise` from the argument array `rejects`, the single `promise` returned from `promise.all()` will immediately `reject` with the reason that `promise` rejected. This behavior is sometimes referred to as failing fast.
 
-_+_ **JavaScript** offers a wide range of _frameworks_ and _libraries_ that help Developers create _complex applications_ with low overhead. Programmers can `import` `libraries` and `frameworks` in their `code` to augment their `application’s functionality`.
+***Let’s look at a code example:***
 
-## **JavaScript for Servers**
+```
+let myPromises = `promise`.all([returnsPromOne(), returnsPromTwo(), returnsPromThree()]);
+ 
+myPromises
+  .then((arrayOfValues) => {
+    console.log(arrayOfValues);
+  })
+  .catch((rejectionReason) => {
+    console.log(rejectionReason);
+  });
+```
 
-_-_ In the early 2000s, big platforms like **Facebook** and **Google** began using ***JavaScript*** in their _back-end server logic_ to process and respond to _front-end requests_. **JavaScript** helped businesses scale since Engineers who knew ***JavaScript**** could apply those skills in a _back-end context_;
+***Let’s break down what’s happening:***
 
-_+_ **JavaScript** used for `servers`, also known as `server-side JavaScript`, gained popularity because it allowed for scalability. In the `server`, **JavaScript** can be integrated with _other languages_ to **communicate** with `databases`;
+- We declare `myPromises` assigned to invoking `promise.all()`;
 
-_+_ `Node.JS`, or `Node`, is one of the most popular versions of `server-side JavaScript`. `Node` has been used to write large platforms for **NASA**, **eBay** and many others. Since **JavaScript** can execute `programs` out of sequential order, `Node` can be used to create scalable _web applications_, _messaging platforms_, and _multiplayer games_. This is why **Google Cloud** and **Amazon Web Service** depend on `Node` for some of their services.
+- We invoke `promise.all()` with an array of three `promises` - the returned values from functions;
 
-## **What Else Can JavaScript Do?**
+- We invoke `.then()` with a _success handler_ which will print the array of resolved values if each `promise` `resolves` successfully;
 
-_-_ Beyond the _web_, **JavaScript** has a large presence amongst _cross-platform applications_. We use some popular standalone _desktop apps_ like **Slack**, **GitHub**, **Skype**, and **Tidal**. These _applications_ are developed with the **JavaScript** _framework_ called `Electron.js`. `Electron` is excellent for making _desktop applications_ that need to work across different **devices** regardless of **operating system**;
+- We invoke `.catch()` with a _failure handler_ which will print the first rejection message if any `promise` rejects.
 
-_+_ In addition, **JavaScript** has the potential of expanding into other innovative technologies such as virtual reality and gaming. **JavaScript** can be used for _animating_, _rendering_ and _scaling_. **JavaScript** even has contributed to the _internet_ of things, the technology that makes simple `objects`, like your fridge, smarter. Everyday **devices** can become _interactive_ and collect data using **JavaScript** _libraries_.
+# **Instructions**
 
-## **Requirement**
-_-_ This _module_ requires no _modules_ outside of `Node.JS` core.
-_-_ I will update the _module_ requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+#### **1. We require in one function: checkAvailability().**
 
-## **Installation**
-_-_ ***Install*** as you would normally _install_ a contributed _module_ of itself. 
+Our business is doing so well that we’re running low on inventory. We want to reach out to some distributors to see if they have the items we need. We only want to make one restocking order, so we’ll only want to place the order if all of the items are available.
 
-## **Configuration**
-_-_ The _module_ has no menu or modifiable settings. There is no configuration. When
-enabled, the _module_ will **prevent** the _links_ from appearing. To **get** the _links_
-back, **disable** the _module_ and **clear** _caches_.
+We require in one function: `checkAvailability()`.
 
-## **Information for Developers**
-_-_ The **Search API** provides a lot of ways for Developers to **extend** or **customize** the
-_framework_.
+> `checkAvailability()` expects two string arguments: an `item` and a `distributor`. 
 
-## **Troubleshooting**
-*Whether the menu does not display, check the following:*
-_-_ Are the _"Access administration menu"_ and _"Use the administration pages and
-  help"_ permissions enabled for the appropriate roles?
-- Does `html.tpl.php` of your **theme output** the `$page_bottom` variable?
+> It returns a `promise`. The function simulates checking that the given `distributor` has a given `item`. 80% of the time it will `resolve` the `promise` with the `item`, and 20% of the time it will `reject` the `promise` with an **error message** stating that the `item` isn’t available.
 
-## **FAQ**
+We provided two functions which will serve as success and failure handlers.
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need. **Customerror** returns the correct `HTTP
-status` codes _(403 and 404)_. This will prevent robots from indexing the
-`error` pages.
+_You can also look at the `library.js` file to see how these functions work._ 
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+#### **2. Create three variables each assigned to a separate promise:**
 
-## **Contribution**
-_-_ **Pull requests** are welcome. For major changes, please open an **issue** first
-to **discuss** what you would like to change.
-_-_ Please make sure to **update tests** as appropriate.
 
-## **Related License**
-_-_ [MIT](https://choosealicense.com/licenses/mit/)
+> `checkSunglasses` should be assigned the value returned from invoking `checkAvailability()` with `'sunglasses'` as its first argument and `'Favorite Supply Co.'` as its second argument.
 
-## **MIT License:**
-Reference documents of Mr. Othneil Drew [https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt].
+> `checkPants` should be assigned the value returned from invoking `checkAvailability()` with `'pants'` as its first argument and `'Favorite Supply Co.'` as its second argument.
 
-*- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files _(the "Software")_, to deal in the _Software_ without restriction, including without limitation the rights to _use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies_ of the _Software_, and to _permit persons_ to whom the _Software_ is furnished to do so, _subject_ to the following conditions:*
+> `checkBags` should be assigned the value returned from invoking `checkAvailability()` with `'bags'` as its first argument and `'Favorite Supply Co.'` as its second argument.
 
-*- The above **copyright** notice and this permission notice shall be included in all copies or substantial portions of the _Software_.*
 
-*- THE SOFTWARE IS PROVIDED _"AS IS"_, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
+#### **3. Invoke promise.all() with an array containing checkSunglasses, checkPants, and checkBags.**
 
-#### [**Copyright (c) _20 April 2023 by Nalini Vo_**]
+
+> **Hint:**
+It can sometimes be helpful to break things into additional steps. If we want, we could create a variable to hold our array of `promises`, and then pass that into `promise.all()`:
+
+
+```
+const firstPromise = returnsPromOne();
+const secondPromise =  returnsPromTwo();
+const thirdPromise =  returnsPromThree();
+ 
+const promiseArray = [firstPromise, secondPromise, thirdPromise];
+ 
+`promise`.all(promiseArray);
+```
+
+#### **4. Chain a .then() to the `promise` returned from `promise`.all().** 
+We should pass in onFulfill to serve as the success handler.
+
+> **Hint:**
+Since `promise.all()` returns a single `promise`, we’ll chain this `.then()` directly onto it similarly to this:
+```
+promise.all([firstPromise, secondPromise, thirdPromise])
+.then((resolvedValue) => {console.log(resolvedValue)})
+```
+
+#### **5. Add a .catch() to the chain. We should pass in onReject to serve as the failure handler.**
+
+
+#### **6. Type node app.js in the terminal and hit enter to execute our program.**
