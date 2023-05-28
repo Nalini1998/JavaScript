@@ -1,96 +1,149 @@
-# **FOR YOUR INFORMATION**
-Here is the codespace for my JavaScript Project; Theories; Issues; Discussions, etc...
+### **BUILDING INTERACTIVE WEBSITES:**
 
-## **JavaScript on the Web**
-**JavaScript**, also called **JS**, is a flexible and powerful language that is implemented consistently by various _web browsers_, making it the language for _web development_. **JavaScript**, **HTML**, and **CSS** are the **core components** of _web technology_;
+# **Project: Kelvin Weather Focast**
 
-While **HTML** is responsible for _structure_ and **CSS** is responsible for _style_, **JavaScript** provides _interactivity_ to web pages in the browser.
+<br>
 
-## **Popularity of JavaScript**
-*In short, ***JavaScript*** became a _hit_ because it turned _web browsers_ into _application platforms_. Here’s how:*
+Deep in his mountain-side meteorology lab, the mad scientist Kelvin has mastered weather prediction.
 
-_+_ **JavaScript** can be used in both the _front-end_ and _back-end_ of _web development_;
+Recently, Kelvin began publishing his weather forecasts on his website. However there’s a problem: All of his forecasts describe the temperature in Kelvin.
 
-_+_ **JavaScript** is standardized so it’s frequently updated with new versions;
+_With our knowledge of JavaScript, let’s convert Kelvin to Celsius, then to Fahrenheit._
 
-_+_ **JavaScript** integrates easily with **HTML** and **CSS**;
+![Image](/4.%20Kelvin%20Weather%20Focast/Kelvin%20Thermometers.JPG)
 
-_+_ **JavaScript** allows _websites_ to have ***interactivity*** like scroll transitions and object movement. Modern browsers still compete to process **JavaScript** the fastest for the best `user` experiences. _Chrome_, the most used _Internet browser_ in 2017, has been so successful because of its ability to process **JavaScript** quickly;
 
-_+_ **JavaScript** offers a wide range of _frameworks_ and _libraries_ that help Developers create _complex applications_ with low overhead. Programmers can `import` `libraries` and `frameworks` in their `code` to augment their `application’s functionality`.
+<br>
 
-## **JavaScript for Servers**
+## **Kelvin, Celsius, and Fahrenheit thermometers**
+_For example, 283 K converts to 10 °C which converts to 50 °F._
 
-_-_ In the early 2000s, big platforms like **Facebook** and **Google** began using ***JavaScript*** in their _back-end server logic_ to process and respond to _front-end requests_. **JavaScript** helped businesses scale since Engineers who knew ***JavaScript**** could apply those skills in a _back-end context_;
+## **Tasks**
 
-_+_ **JavaScript** used for `servers`, also known as `server-side JavaScript`, gained popularity because it allowed for scalability. In the `server`, **JavaScript** can be integrated with _other languages_ to **communicate** with `databases`;
 
-_+_ `Node.JS`, or `Node`, is one of the most popular versions of `server-side JavaScript`. `Node` has been used to write large platforms for **NASA**, **eBay** and many others. Since **JavaScript** can execute `programs` out of sequential order, `Node` can be used to create scalable _web applications_, _messaging platforms_, and _multiplayer games_. This is why **Google Cloud** and **Amazon Web Service** depend on `Node` for some of their services.
+#### **1. Create a kelvin variable and set it equal to 293**
 
-## **What Else Can JavaScript Do?**
+The forecast today is `293` Kelvin. To start, create a variable named `kelvin`, and set it equal to `293`.
 
-_-_ Beyond the _web_, **JavaScript** has a large presence amongst _cross-platform applications_. We use some popular standalone _desktop apps_ like **Slack**, **GitHub**, **Skype**, and **Tidal**. These _applications_ are developed with the **JavaScript** _framework_ called `Electron.js`. `Electron` is excellent for making _desktop applications_ that need to work across different **devices** regardless of **operating system**;
+The value saved to `kelvin` will stay **constant**. Choose the variable type with this in mind.
 
-_+_ In addition, **JavaScript** has the potential of expanding into other innovative technologies such as virtual reality and gaming. **JavaScript** can be used for _animating_, _rendering_ and _scaling_. **JavaScript** even has contributed to the _internet_ of things, the technology that makes simple `objects`, like your fridge, smarter. Everyday **devices** can become _interactive_ and collect data using **JavaScript** _libraries_.
+> **Hint:**
+Here’s how our code should look:
+`const kelvin = 293;`
 
-## **Requirement**
-_-_ This _module_ requires no _modules_ outside of `Node.JS` core.
-_-_ I will update the _module_ requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+<br>
 
-## **Installation**
-_-_ ***Install*** as you would normally _install_ a contributed _module_ of itself. 
 
-## **Configuration**
-_-_ The _module_ has no menu or modifiable settings. There is no configuration. When
-enabled, the _module_ will **prevent** the _links_ from appearing. To **get** the _links_
-back, **disable** the _module_ and **clear** _caches_.
+#### **2. Write a comment above that explains this line of code.**
 
-## **Information for Developers**
-_-_ The **Search API** provides a lot of ways for Developers to **extend** or **customize** the
-_framework_.
+> **Hint:**
+Add single line comments with `//`.
 
-## **Troubleshooting**
-*Whether the menu does not display, check the following:*
-_-_ Are the _"Access administration menu"_ and _"Use the administration pages and
-  help"_ permissions enabled for the appropriate roles?
-- Does `html.tpl.php` of your **theme output** the `$page_bottom` variable?
+<br>
 
-## **FAQ**
+#### **3. Convert Kelvin to Celsius**
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need. **Customerror** returns the correct `HTTP
-status` codes _(403 and 404)_. This will prevent robots from indexing the
-`error` pages.
+Celsius is similar to Kelvin — the only difference is that Celsius is **273** degrees less than Kelvin.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+Let’s convert Kelvin to Celsius by subtracting `273` from the `kelvin` variable. Store the result in another variable, named `celsius`.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+> **Hint:**
+Here’s how our code should look:\
+`const celsius = kelvin - 273;`
 
-## **Contribution**
-_-_ **Pull requests** are welcome. For major changes, please open an **issue** first
-to **discuss** what you would like to change.
-_-_ Please make sure to **update tests** as appropriate.
+<br>
 
-## **Related License**
-_-_ [MIT](https://choosealicense.com/licenses/mit/)
+#### **4. Write a comment above that explains this line of code.**
 
-## **MIT License:**
-Reference documents of Mr. Othneil Drew [https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt].
 
-*- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files _(the "Software")_, to deal in the _Software_ without restriction, including without limitation the rights to _use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies_ of the _Software_, and to _permit persons_ to whom the _Software_ is furnished to do so, _subject_ to the following conditions:*
+<br>
 
-*- The above **copyright** notice and this permission notice shall be included in all copies or substantial portions of the _Software_.*
+#### **5. Use the below equation to calculate Fahrenheit**
+Use this equation to calculate **Fahrenheit**, then store the answer in a variable named `fahrenheit`.
 
-*- THE SOFTWARE IS PROVIDED _"AS IS"_, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.*
+`Fahrenheit = Celsius * (9/5) + 32`
 
-#### [**Copyright (c) _20 April 2023 by Nalini Vo_**]
+In the next step we will round the number saved to `fahrenheit`. Choose the variable type that allows us to change its value.
+
+> **Hint:**
+Use the provided formula to assign the correct value to `fahrenheit`, like so:\
+`let fahrenheit = celsius * (9 / 5) + 32;`
+
+#### **6. Write a comment above that explains this line of code.**
+
+<br>
+
+#### **7. Round down the Fahrenheit temperature**
+
+> When we convert from **Celsius** to **Fahrenheit**, we often get a decimal number.
+
+Use the `.floor()` method from the built-in Math object to round down the Fahrenheit temperature. **Save** the result to the `fahrenheit` variable.
+
+> **Hint:**
+Here’s how our code should look:\
+`fahrenheit = Math.floor(fahrenheit);`
+
+<br>
+
+#### **8. Write a comment above that explains this line of code.**
+
+<br>
+
+#### **9. Use console.log and string interpolation to log the temperature in fahrenheit to the console as follows:**
+
+`The temperature is TEMPERATURE degrees Fahrenheit.`
+
+Use string interpolation to replace `TEMPERATURE` with the value saved to `fahrenheit`.
+
+> **Hint:**
+To interpolate the string correctly, our code should look like:
+```
+console.log(`The temperature is ${fahrenheit} degrees Fahrenheit.`);
+```
+<br>
+
+#### **10. Run our program to see the results!**
+
+> **Hint:**
+293 Kelvin is about 68 degrees Fahrenheit.
+
+<br>
+
+#### **11. Change the value of kelvin and run the program again**
+By using variables, our program should work for any Kelvin temperature - just change the value of `kelvin` and run the program again.
+
+***What’s 0 Kelvin in Fahrenheit?***
+
+> **Hint:**
+We’ll need to go back to the top of our program and set kelvin to 0.
+`const kelvin = 0;`\
+***0 Kelvin is equivalent to -460 degrees Fahrenheit!***
+
+<br>
+
+#### **12. Extra practice**
+
+_Great work! Kelvin can now publish his forecasts in Celsius and Fahrenheit._
+_If we’d like Extra practice, try this:_
+
+**Convert celsius to the Newton scale using the equation below**
+
+> `Newton = Celsius * (33/100)`
+
+Round down the Newton temperature using the `.floor()` method\
+Use `console.log` and string interpolation to `log` the temperature in `newton` to the `console`
+
+> **Hint:**
+```
+// Convert to Newton
+let newton = celsius * (33 / 100);
+ 
+// Round down
+newton = Math.floor(newton);
+ 
+console.log(`The temperature is ${newton} degrees Newton.`);
+```
+
+<br>
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
