@@ -1,66 +1,128 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **BUILDING INTERACTIVE WEBSITES:**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+# **Dog Years Calculation**
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+Dogs mature at a faster rate than human beings. We often say a dog’s age can be calculated in `'dog years'` to account for their growth compared to a human of the same age. In some ways we could say, time moves quickly for dogs — 8 years in a human’s life equates to 45 years in a dog’s life. 
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+***How old would we be if we were the dogs?***
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+***Here’s how we convert our age from `'human years'` to `'dog years'`:***
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+> The first two years of a dog's life count as **10.5** dog years each.\
+> Each year following equates to **4** dog years.\
+> Before we start doing the math in our head, let a computer take care of it! With our knowledge of math operators and variables, use JavaScript to convert our human age into dog years.
 
-## FAQ
+<br>
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+# **Tasks**
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+#### **1. Create the myAge variable, set it equal to our age.**
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+> Write a comment that explains this line of code.
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+<br>
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+#### **2. Create the earlyYears variable and save the value 2 to it. Note, the value saved to this variable will change.**
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+> Write a comment that explains this line of code.
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+<br>
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#### **3. Multiply the value saved to earlyYears by 10.5 and reassign it.**
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+Use the multiplication assignment operator to multiply the value saved to `earlyYears` by **10.5** and reassign it to `earlyYears`.
+
+<br>
+
+#### **4. Set the result equal to a variable called laterYears**
+
+Since we already accounted for the first two years, take the `myAge` variable, and subtract **2** from it.
+
+Set the result equal to a variable called `laterYears`. We’ll be changing this value later.
+
+> Write a comment that explains this line of code.
+
+<br>
+
+#### **5. Multiply the laterYears variable by 4.**
+
+Multiply the `laterYears` variable by **4** to calculate the number of dog years accounted for by our later years. 
+
+Use the multiplication assignment operator to multiply and assign in one step.
+
+> Write a comment that explains this line of code.
+
+<br>
+
+#### **6. Print earlyYears and laterYears to the console**
+
+If we’d like to check our work at this point, print `earlyYears` and `laterYears` to the `console`. Are the values what you expected?
+
+<br>
+
+#### **7. Add earlyYears and laterYears together**
+
+Add `earlyYears` and `laterYears` together, and store that in a variable named `myAgeInDogYears`.
+
+> Write a comment that explains this line of code.
+
+<br>
+
+#### **8. Store our name in myName variable**
+_Let’s use a string method next._
+
+Write our name as a string, call its built-in method `.toLowerCase()`, and store the result in a `myName` variable.
+
+The `toLowerCase` method returns a string with all lowercase letters.
+
+> Write a comment that explains this line of code.
+
+<br>
+
+#### **9. Displays our name and age in dog years**
+
+Write a `console.log` statement that displays our name and age in dog years. Use string interpolation to display the value in the following sentence:
+```
+My name is NAME. I am HUMAN AGE years old in human years which is DOG AGE years old in dog years.
+```
+Replace `NAME` with `myName`, `HUMAN AGE` with `myAge`, and `DOG AGE` with `myAgeInDogYears` in the sentence above.
+
+> Write a comment that explains this line of code.
+
+<br>
+
+#### **10. Review**
+
+_Great work! We can convert any human age to dog years. Try changing `myAge` and see what happens._
+
+**app.js**
+```
+// Create a variable named myAge
+const myAge = 25;
+
+// Create a variable named earlyYears
+let earlyYears = 2;
+
+// Multiply the value saved to earlyYears by 10.5
+earlyYears *= 10.5;
+
+// Set the result equal to a variable called laterYears
+let laterYears = myAge - 2;
+
+// Multiply the laterYears variable by 4
+laterYears *= 4;
+
+// Add earlyYears and laterYears together, and store that into myAgeInDogYears
+let myAgeInDogYears = (earlyYears, laterYears);
+
+// toLowerCase method returns a string with all lowercase letters
+const myName = 'Nalini Vo'.toLowerCase();
+
+console.log(earlyYears);
+console.log(laterYears);
+
+console.log(`My name is ${myName}. I am ${myAge} years old in human years which is ${myAgeInDogYears} years old in dog years.`)
+```
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
