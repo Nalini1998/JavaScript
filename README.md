@@ -1,66 +1,77 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **BUILDING INTERACTIVE WEBSITES**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+# **Project: Magic Eight Ball**
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+We’ve learned a powerful tool in JavaScript: control flow! It’s so powerful, in fact, that it can be used to tell someone’s fortune.
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+In this project we will build a **Magic Eight Ball** using control flow in JavaScript.
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+The user will be able to input a question, then our program will output a random fortune.
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+# **Tasks**
 
-## FAQ
+#### **1. Define a variable called userName**
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+In the first line of the program, define a variable called `userName` that is set to an empty string.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+If the user wants, they can enter their name in between the quotation marks.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+<br> 
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+#### **2. Create a ternary expression that decides what to do if the user enters a name or not**
+Below this variable, create a ternary expression that decides what to do if the user enters a `name` or not. If the user enters a name — like `'Jane'` — use string interpolation to `log` `Hello, Jane!` to the `console.` Otherwise, simply `log` `Hello!`.
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+<br>
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+#### **3. Create a variable named userQuestion.**
+The value of the variable should be a string that is the question the user wants to ask the **Magic Eight Ball**.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+<br>
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+#### **4. Write a console.log() for the userQuestion**
+Stating what was asked. We can include the user’s name in the `console.log()` statement, if we wish!
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<br>
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+#### **5. Create another variable, and name it randomNumber.**
+We need to generate a random number between 0 and 7.\
+Create another variable, and name it `randomNumber`. \
+Set it equal to this expression, which uses two methods 
+`(Math.floor()` and `Math.random())` from the Math library.
+```
+Math.floor(Math.random() * 8);
+```
+<br>
+
+#### **6. Create one more variable named eightBall**
+Create one more variable named `eightBall`, and set it equal to an empty string. We will save a value to this variable in the next steps, depending on the value of `randomNumber`.
+
+<br>
+
+#### **7. We need to create a control flow that takes in the randomNumber**
+We need to create a control flow that takes in the `randomNumber` we made in _step 5_, and then assigns `eightBall` to a reply that a **Magic Eight Ball** would return. Think about utilizing `if/else` or `switch` statements. 
+
+_Here are **8 Magic Eight Ball** phrases that we’d like to save to the variable `eightBall`:_
+
+`'It is certain'`\
+`'It is decidedly so'`\
+`'Reply hazy try again'`\
+`'Cannot predict now'`\
+`'Do not count on it'`\
+`'My sources say no'`\
+`'Outlook not so good'`\
+`'Signs point to yes'`
+
+If the `randomNumber` is **0**, then save an answer to the `eightBall` variable; if `randomNumber` is **1**, then save the _next answer, and so on_. If we’re feeling creative, make our own responses!
+
+<br>
+
+#### **8. Write a console.log() to print the Magic Eight Ball’s answer, the value of the eightBall variable.**
+
+<br>
+
+#### **9. Run our program a few times to see random results appear in the console!**
+
+<br> 
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
