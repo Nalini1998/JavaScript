@@ -1,66 +1,83 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **BUILDING INTERACTIVE WEBSITES**
+# **Race Day**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+ABC’s annual race is just around the corner! This year, we have a lot of participants. I have been hired to write a program that will register runners for the race and give them instructions on race day.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+As a timeline, registration would look like this: `registration-timeline`
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+Here’s how our registration works. There are **adult** runners _(over 18 years of age)_ and **youth** runners _(under 18 years of age)_. They can register **early** or **late**. Runners are assigned a race number and start time based on their **age** and **registration**.
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+### **Race number:**
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+- Early adults receive a race number at or above 1000.
+- All others receive a number below 1000.
 
-## FAQ
+### **Start time:**
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+- Adult registrants run at 9:30 am or 11:00 am.
+- Early adults run at 9:30 am.
+- Late adults run at 11:00 am.
+- Youth registrants run at 12:30 pm _(regardless of registration)._
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+_But we didn’t plan for runners that are exactly 18! We’ll handle that by the end of the project._
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+<br>
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+# **Tasks**
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+#### **1. Race numbers are assigned randomly. We’ve provided the necessary code at the top of the file.**
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+<br>
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#### **2. Create a variable that indicates whether a runner registered early or not.**
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+> Set it equal to a Boolean value. We'll change this later as we test different runner conditions.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<br>
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+#### **3. Create a variable for the runner’s age and set it equal to a number.**
+
+> Set it equal to a Boolean value. We'll change this later as we test different runner conditions.
+
+<br>
+
+#### **4. Create a control flow statement that checks whether the runner is an adult AND registered early.**
+
+> Add 1000 to their `raceNumber` if this is `true`.
+
+<br>
+
+#### **5. Create a separate control flow statement below the first (starting with if again).**
+
+> This statement will check age and registration time to determine race time.
+
+> For runners over 18 who registered early, log a statement to the console telling them that they will race at 9:30 am. Include their `raceNumber`.
+
+<br>
+
+#### **6. Write the corresponding else if statement to return "Late adults run at 11:00 am"**
+
+> Since we already checked for early adults we can write a statement like this: `else if` runner is over 18 AND did not register early they will race at 11:00am.
+
+> Within that, log a string to the `console` telling them that they will race at 11:00 am. Include their `raceNumber`.
+
+<br>
+
+#### **7. Log a statement to the console telling them that they will race at 12:30 pm**
+> `"Youth registrants run at 12:30 pm (regardless of registration)"`
+
+> For people who are under 18, log a statement to the console telling them that they will race at 12:30 pm. Include their `raceNumber`.
+
+<br>
+
+#### **8. Verify that the correct statements are printing to the console!**
+> Enter different combinations of values for the two variables you created and run your code several times. Verify that the correct statements are printing to the `console`!
+
+<br>
+
+#### **9. Logs a statement to the console for the runners (exactly 18 years old)**
+> Add an else statement that logs a statement to the console telling the runners (exactly 18 years old) to see the registration desk.
+
+<br>
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
