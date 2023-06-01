@@ -1,66 +1,98 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+# **Project: Number Guesser Game**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+## **Overview**
+This project is slightly different from others I have encountered thus far. Instead of a step-by-step tutorial, this project contains a series of open-ended requirements which describe the project I’ll be building. There are many possible ways to correctly fulfill all of these requirements, and I should expect to use my documents, the internet, and other resources when I encounter a problem that I cannot easily solve. In order to complete this project, I should have have JavaScript Functions knowledges.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+## **Project Goals**
+In this project, I’ll write JavaScript functions to power a small guessing game. My code will run in the browser instead of the terminal, and I can use my browser's **console** to help me test my functions and view any **syntax errors**.
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+## **Project Requirements**
+In this project, I’ll write four functions in **script.js**. The provided code in **game.js** that will call my functions based on user interactions. 
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+As I complete this project, I need to make sure that all of my functions are named exactly as specified within these tasks so that they can be called correctly when the game is played. In this project, my JavaScript functions are incorporated into a website that also uses HTML/CSS. 
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+## **Setup Instructions**
+I'll need to open and work in **script.js** in a text editor, and open **index.html** in a browser to test my code. 
 
-## FAQ
+# **Tasks**
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+#### **1. Create a generateTarget() function.**
+This function should return a random integer between 0 and 9.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+The purpose of this function is to be called at the start of each new round in order to generate the new secret target number.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+**Hint:**
+`Math.floor()` and `Math.random()` should help to generate this number.
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+<br>
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+#### **2. Create a `compareGuesses()` function.**
+This function:
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+- Has **three parameters** representing the **human guess**, a **computer guess**, and the **secret target** number to be guessed.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+- Determines which player _(human or computer)_ wins based on which guess is closest to the target. If both players are tied, the human user should win.
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+- Return `true` if the human player wins, and `false` if the computer player wins.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+- The purpose of this function is to be called each round to determine which guess is closest to the target number.
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+**Hint:**
+> I’ll want to compare the absolute value of the difference between the target and each guess, because each guess could be greater or less than the target, and the only thing that matters is the distance between the two.
+
+> The `Math.abs()` method can help to find absolute values _(or we can write own own absolute value function!)_.
+
+<br>
+
+#### **3. Create an `updateScore()` function.**
+This function:
+
+- Has a single parameter. This parameter will be a string value representing the winner.
+- Increases the score variable _(humanScore or computerScore)_ by **1** depending on the winner passed in to `updateScore`. The string passed in will be either _'human'_ or _'computer'_.
+- Does not need to return any value.
+- The purpose of this function is to be used to correctly increase the winner's score after each round.
+
+**Hint:**
+> This function can utilize an `if…else` statement.
+
+<br>
+
+#### **4. Create an `advanceRound()` function.**
+- This function should increase the value of `currentRoundNumber` by **1**.
+
+- The purpose of this function is to be used to update the round number after each round.
+
+- After completing `advanceRound()`, my Number Guesser game should be fully operational. I should be able to make guesses, see my or the computer score increase correctly, move to the next round, and see the correct round displayed.
+
+
+**Hint:**
+This function adds 1 to the value of `currentRoundNumber()`.
+
+<br>
+
+#### **5. Test that my code is working properly by invoking my newly written functions within script.js with sample inputs.** 
+I can delete this code once I'am convinced that everything is working as it should.
+
+**Hint:**
+> Use the `console.log()` method to see the output of my `advanceRound()` and `updateScore()` functions in my browser's inspector `console`. 
+> To open the inspector `console`, I can either press ctrl or **cmd + shift + I** or right-click inside of my browser window, then click **“Inspect”** or **“Inspect Element”**. Click the **tab** that says **“console”**.
+
+My browser `console` will print outputs that might not be relevant to me here. To only see logs from my Number Guesser program I'll need to filter the `console` output. That filter may be called something different depending on which browser I am using:
+
+In **Chrome**, I'll click the filter called **“info”**.
+In **Safari** and **Firefox**, I’ll click the filter called **“Logs”**.
+Each time I run my program, it will refresh, resetting the values of my score and `currentRoundNumber` variables, so I’ll want to call my functions multiple times to see their value increase by more than one.
+
+<br>
+
+#### **6. Extra Task**
+I probably calculated the distance from the computer guess to the target and from the human guess to the target. Move this into a separate `getAbsoluteDistance()` function that takes two numbers and returns the distance, and then use that inside my `compareGuesses()` function.
+
+**Add** functionality to check whether the user guess is between 0 and 9 and `alert()` the user that their number is out of range. It's not possible to set a number outside this range with the **+** and **=** buttons, but users can do so by typing directly in the input field.
+
+**Hint:**
+> For the `getAbsoluteDistance()` function `Math.abs()` will be utilized again.
+
+> For checking a range, one possible check is `if ((x >= xmin) && (x <= xmax))`.
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
