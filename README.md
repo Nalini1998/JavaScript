@@ -1,66 +1,104 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **BUILDING INTERACTIVE WEBSITES**
+# **Whale Talk**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+Take a phrase like `'turpentine and turtles'` and translate it into its `“whale talk”` equivalent: `‘UUEEIEEAUUEE’`.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+There are a few simple rules for translating text to whale language:
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+- There are no consonants. Only vowels excluding “y”.
+- The u‘s and e‘s are extra long, so we must double them in our program.
+- Once we have converted text to the whale language, the result is sung slowly, as is a custom in the ocean.
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+To accomplish this translation, we can use our knowledge of **loops**. Let’s get started!
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+<br>
 
-## FAQ
+# **Tasks**
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+<br>
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+#### **1. Create a variable named input that is equal to any phrase we’d like.**
+This variable will contain the text we want to translate into “whale talk”.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+<br>
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+#### **2. Using these lowercase letters, create an array named vowels.**
+Whales only speak with the vowels, _“a”, “e”, “i”, “o”, and “u”_. 
+Using these lowercase letters, create an array named vowels. This array will not be updated so be sure to choose the appropriate declaration keyword.
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+**Note**: The use of this array will be more apparent within the following steps.
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+<br>
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#### **3. Create a variable named resultArray and set it equal to an empty array: [].** 
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+This will serve as a place to store the vowels from the input string.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<br>
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+#### **4. Create a loop to iterate through each letter of the input variable text.** 
+In a later step, we will compare each letter with our vowels array.
+
+<br>
+
+#### **5. Check out word**
+To check out work, `log` the iterator numbered position inside the for loop and run our code. This should count the number of characters in our input string.
+
+<br>
+
+#### **6. Create a nested for loop inside of the for loop you just wrote.**
+Make the inner loop iterate through the vowels array each time the outer loop runs.
+
+This will enable us to check each letter of input against all the vowels elements during each iteration.
+
+<br>
+
+#### **7. Check out word**
+To check your work, `log` the iterator number positions inside the inner for loop and run our code. We should see 0 through 4 repeatedly because vowels is 5 elements long.
+
+<br>
+
+#### **8. Inside the second for loop, write a code block that compares the input letter to every letter in the vowels array.**
+
+**Note**: To check that everything is working properly, `log` letter matches to the `console`.
+
+<br>
+
+#### **9. Now instead of just logging the letters, add them to the results array.**
+
+**Note**: To check our work use `console.log()` to print our `resultArray`. The letters we logged to the `console` in step 8 should be now included in our `resultArray`.
+
+<br>
+
+#### **10. Write an if statement that checks if each letter in the input string is equal to 'e'.**
+
+Whales double their e's and the u's in their language.
+
+Write an if statement that checks if each letter in the input string is equal to **'e'**. If so, use the `.push()` method to add `input[i]` to the `resultArray`.
+
+**Note**: This statement belongs before the inner for loop block inside the outer for loop. This is because I only want to perform this check once for every letter in the input.
+
+<br>
+
+#### **11. Next, we want to double the letter u.**
+
+<br>
+
+#### **12. At the bottom of the program, log the resultArray to the console.**
+
+<br>
+
+#### **13. Declare a variable resultString that joins our resultArray into a single string and capitalizes all of its letters.**
+
+Currently, `resultArray` outputs an array of characters. To produce proper whale language, we want to capitalize the array elements and put them together as one string.
+
+Declare a variable resultString that joins our resultArray into a single string and capitalizes all of its letters.
+
+<br>
+
+#### **14. Run the program and sing the output out loud**
+
+**Note**: To confirm, if we change the value of input to `'turpentine and turtles'`, the whale version would read: `'UUEEIEEAUUEE'`.
+
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
