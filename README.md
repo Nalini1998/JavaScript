@@ -1,66 +1,92 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **BUILDING INTERACTIVE WEBSITES**
+# **Project: Team Stats**
+We want to create, retrieve, and add information about our favorite sports team. Basketball, soccer, tennis, or water polo, we pick it ourselves. It’s our job to create data using the JavaScript data structures at our disposal: **arrays** and **objects**.
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+After we create these data structures in this project, feel free to challenge ourselves to gain insights from them. For example, we might want to get the total number of games our team has played, or the average score of all of their games.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+<br>
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+# **Tasks**
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+<br>
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+## **Populating Data**
 
-## FAQ
+<br>
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+#### **1. Declare a const variable called team and set it to an empty object.**
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+<br>
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+#### **2. Add a _players property and a _games property and initialize both to empty arrays.**
+> Our team has `players` and the `games` that they have played. Let’s represent both of these by adding two properties to our team object. 
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+<br>
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+#### **3. Next, populate the empty_players array with three players.**
+Each `player` should be an object containing three properties: **firstName**, **lastName**, and **age**. 
+Put each `player` on a new line to prevent the line from getting too long.
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+<br>
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#### **4. Let’s do the same for our _games array.**
+Populate the empty array with three `games`. Each `game` should be an object containing three properties: **opponent**, **teamPoints**, **opponentPoints**.
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+<br>
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## **Getting Data**
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+<br>
+
+#### **5. Create a getter method called players to retrieve the _players property.**
+Inside the getter method, return the `_players` property.
+
+For the scope of this project, we won’t need to create setter methods, because we don’t want anyone to change the data saved to the properties.
+
+<br>
+
+#### **6. Create another getter method called games to retrieve the _games property.**
+Inside the getter method, return the `_games` property.
+
+<br>
+
+## **Adding Data**
+
+<br>
+
+#### **7. We want to add a new player to our team.**
+Add a `.addPlayer()` method to the `team` object.
+This method should take in three parameters: **newFirstName**, **newLastName**, and **newAge**.
+
+Inside the method, create a `player` object by setting the three parameters to be the values for the object's three properties: `firstName`, `lastName`, `age`. 
+
+Finally, add the `player` object to the team's `_players` array.
+
+<br>
+
+#### **8. Let’s try out our new .addPlayer() method to add a new player**
+
+Below the `team` object, let’s try out our new `.addPlayer()` method to add a new `player`: `Bugs` `Bunny`, age `76`.
+`Log` the team's `_players` property to check that our new `player` was added.
+
+<br>
+
+#### **9. Create a method for adding game results called addGame**
+
+The scorekeeper has some new information for us! Create a method for adding game results called `addGame` that takes three parameters: **newOpponent**, **newTeamPoints**, **newOpponentPoints**.
+
+Inside the `.addGame()` method, create a `game` object by setting the three parameters to be the values for the object's three properties: `opponent`, `teamPoints`, `opponentPoints`.
+
+Add the `game` object to the team's `_games` array.
+
+<br>
+
+#### **10. Finally, below our team object, use the .addGame() method to add a record of a new game.**
+
+Our team played against the `'Titans'` where we scored `100` points and the opponent scored `98` points.
+
+`Log` the team's `_games` property to check that our new game record was properly added.
+
+<br>
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
