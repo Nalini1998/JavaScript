@@ -1,66 +1,86 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **BUILDING INTERACTIVE WEBSITES**
+# **Project: Meal Maker**
+A restaurant has hired us to create a function for their website that allows them to set a meal and price each morning for Today’s Special. Use our knowledge of getters and setters to make sure anyone who uses the new function can generate a meal and a price for Today’s Special without any embarrassing errors!
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+# **Tasks**
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+## **Create the Menu Object**
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+<br>
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+#### **1. In app.js, create an empty menu object.**
+We’ll hold the **meal**, **price**, and their respective **getters** and **setters** in an object named **menu**.
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+<br>
 
-## FAQ
+#### **2. The menu object will hold the meal and price of Today’s Special as properties and they shouldn’t be altered directly.**
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+Within the menu object, create a `_meal` property with a value of an empty string (`''`). This will eventually hold the name of the `meal`.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+<br>
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+#### **3. Next, add a _price property with a value of 0. This will eventually hold the price of the meal, and should also not be altered directly.**
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+<br>
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+#### **4. We know properties that begin with _ should not be directly manipulated. But just to validate this knowledge, let’s test it out!**
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+Below the menu object, directly manipulate the two properties by assigning `_meal` a `number` value and `_price` a `string` value.
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Then, below the new assignments, `console.log()` the `menu` object to see how not type checking these values could cause confusion for a website visitor!
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+<br>
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## **Add Setter Methods**
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+<br>
+
+#### **5. To safely reassign the two menu properties, we can add setters that type check the values being assigned.**
+
+Below the properties, use the set keyword to create a `meal` setter method with `mealToCheck` as a parameter. Leave the function body empty for now.
+
+<br>
+
+#### **6. In the body of the setter method, create an if statement that checks if mealToCheck is a string.**
+If it is, return the object’s `_meal` property with `mealToCheck` assigned as the value.
+
+<br>
+
+#### **7. Utilizing the same procedures as above, use the set keyword to create a price setter with priceToCheck as a parameter.**
+This method should make sure the value associated with `_price` is always a `number`.
+
+<br>
+
+#### **8. Below the menu object, set the values of _meal and _price using the newly created setter methods.**
+Then, `console.log()` the `menu` object to check their functionality.
+
+<br>
+
+## **Add a Getter Method**
+
+<br>
+
+#### **9. Now it’s time to safely return the values of the _meal and _price properties in a readable form.**
+Instead of directly accessing the properties, we can use a getter method that proactively checks if a `meal` and `price` have been properly set, before returning the values.
+
+Below the setters, use the `get` keyword to create a `todaysSpecial` method. Leave the function body empty for now.
+
+<br>
+
+#### **10. In the body of the getter, create an if…else statement to check if _meal and _price values exist (or are truthy values).**
+If so, return a string telling potential website visitors what Today's Special is. For example: "Today's Special is Spaghetti for $5!"
+
+If `_meal` and `_price` values do not exist _(or are falsy)_ return the string `'Meal or price was not set correctly!'`.
+
+<br>
+
+## **Get Today's Special**
+
+<br>
+
+#### **11. Finally, use the getter method to console.log() Today’s Special.**
+
+Assuming we used the `meal` setter to assign a `string`, and the `price` setter to assign a `number` in task 8, we should see Today's Special logged to the `console`.
+
+
+### ***This Project was wrote by [Nalini Vo](https://github.com/Nalini1998)***
