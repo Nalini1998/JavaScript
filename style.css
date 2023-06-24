@@ -1,0 +1,120 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #B0E0E6;
+}
+.title{
+  font-size: 34px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+  padding: 0;
+  color: #141c3a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  font-weight: bold;
+}
+#demo{
+  text-align: center;
+  font-size: 18px;
+  margin-top: 15px;
+  color: #141c3a;
+  letter-spacing: 1px;
+  font-style: italic;
+}
+.piano{
+  width: 300px;
+  height: 210px;
+  display: block;
+  margin: 0 auto;
+  background-color: #fd4d3f;
+  margin-top: 30px;
+}
+.key{
+  width: 30px;
+  height: 200px;
+  display: inline-block;
+  border: solid #141c3a 2px;
+  box-shadow: 2px 5px;
+  background-color: #E0FFFF;
+  color: #141c3a;
+}
+.black-key{
+  width: 25px;
+  height: 100px;
+  display: inline-block;
+  background-color: #141c3a;
+  color: white;
+  position: absolute;
+  margin-left: -12px;
+  padding: 0px;
+}
+.keynote{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 175px;
+  color: #141c3a;
+  font-weight: bold;
+}
+.black-keynote{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  margin-top: 75px;
+  font-weight: bold;
+}
+#lyrics{
+  width: 400px;
+  height: 300px;
+  display: block;
+  margin: 0 auto;
+  padding-left: 20px;
+  margin-top: 50px;
+  background-color: #778899;
+  font-weight: bold;
+}
+#column-one, #column-two, #column-three, #column-four, #column-five, #column-six, #column-optional{
+  width: 100px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 30px;
+  
+}
+#column-optional{
+  display: none;
+}
+#word-one, #word-two, #word-three, #word-four, #word-five, #word-six, #word-optional{
+  background-color: #E0FFFF;
+  width: 90px;
+  height: 25px;
+  padding-top: 10px;
+  letter-spacing: 5px;
+  color: #141c3a;
+}
+#letter-note-one, #letter-note-two, #letter-note-three, #letter-note-four, #letter-note-five, #letter-note-six, #letter-note-optional{
+  color: white;
+  width: 25px;
+  height: 20px;
+  margin-top: 15px;
+  margin-left: 35px;
+}
+#first-next-line, #second-next-line, #third-next-line, #fourth-next-line{
+  width: 70px;
+  height: 40px;
+  font-size: 15px;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 20px;
+  border: none;
+  background-color: #ffc63f;
+  color: #141c3a;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-weight: bold;
+}
