@@ -1,66 +1,70 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+### **DOM EVENTS WITH JAVASCRIPT**
+# **Project: Mouse Events**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+When we use a mouse device on a website, mouse events fire. We’ve seen the click and wheel events, but, there are even more mouse events to explore!
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+The mousedown event is fired when the user presses a mouse button down. This is different from a click event because mousedown doesn’t need the mouse button to be released to fire.
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+### **Mouse Down Event Image**
+![Image](/I.%20JS_Project/32.%20DOM_Mouse%20Events/mousedown.png)
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+The mouseup event is fired when the user releases the mouse button. This is different from the click and mousedown events because mouseup doesn’t depend on the mouse button being pressed down to fire.
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+### **Mouse Up Event Image**
+![Image](/I.%20JS_Project/32.%20DOM_Mouse%20Events/mouseup.webp)
 
-## FAQ
+The mouseover event is fired when the mouse enters the content of an element.
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+### **Mouse Over Event Image**
+![Image](/I.%20JS_Project/32.%20DOM_Mouse%20Events/mouseover.webp)
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+The mouseout event is fired when the mouse leaves an element.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+### **Mouse Out Event Image**
+![Image](/I.%20JS_Project/32.%20DOM_Mouse%20Events/mouseout.webp)
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+<br>
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+# **Instructions**
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+<br>
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+#### **1. Create a function called increaseWidth()**
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+In this exercise, we’ll modify the list elements using mouse events. We can use the reset element that is already programmed to set the other list element back to their default styles.
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+First, create a function called increaseWidth() that changes the .width of itemOne to any size greater than '400px'.
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+<br>
+
+#### **2. Now, create an event handler for itemOne that will trigger the increaseWidth() function when the mouse hovers on it**
+
+<br>
+
+#### **3. Next, create a function called changeBackground() that changes the .backgroundColor of itemTwo**
+
+<br>
+
+#### **4. Let’s use the changeBackground() function for itemTwo**
+
+Let’s use the changeBackground() function we just created as an event handler for itemTwo that will be triggered when the mouse is released over the element!
+
+<br>
+
+#### **5. Now, create a function called changeText() that changes the text of itemThree to 'The mouse has left the element'**
+
+<br>
+
+#### **6. Create an event handler for itemThree that will fire changeText() function when the mouse leaves the element**
+
+<br>
+
+#### **7. Finally, let’s create a function called showItem() that makes the itemFive element appear by changing the .display style property to 'block'**
+
+<br>
+
+#### **8. Now, create an event handler for itemFour that triggers the showItem() function when the mouse is pressed down on the element**
+
+<br>
+
+### ***This Project was completed by [Nalini Vo](https://github.com/Nalini1998)***
