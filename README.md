@@ -1,66 +1,59 @@
-# Notion
-* Here is the codespace for my JavaScript Project;
-* **JavaScript (JS)** is a lightweight, interpreted, or just-in-time compiled programming language with first-class functions.
+## **IMPROVED STYLING WITH CSS**
+# **Transitions - 20,000 Leagues Under the Sea**
 
-## Requirement
-* This module requires no modules outside of Node.JS core.
-* I will update the module requires below as soon as whenever on our demand:
-  - [Views](...)
-  - [Panels](...)
+In this project I will follow step-by-step add the animations to an web page. The web page is an online reader; it presents the full text of the book “20,000 Leagues Under the Sea” by Jules Verne.
 
-## Installation
-- Install as you would normally install a contributed module of itself. 
+The page for the first chapter is mostly complete. There are a few fancy features:
 
-## Configuration
-The module has no menu or modifiable settings. There is no configuration. When
-enabled, the module will prevent the links from appearing. To get the links
-back, disable the module and clear caches.
+- When we hover over the sidebar on the left, a menu opens which contains the Table of Contents.
 
-## Information for developers
-The Search API provides a lot of ways for developers to extend or customize the
-framework.
+- When we hover over a highlighted word in the text, a definition appears. See the words “phosphorescent” and “locomotion”.
 
-## Troubleshooting
-If the menu does not display, check the following:
-- Are the "Access administration menu" and "Use the administration pages and
-  help" permissions enabled for the appropriate roles?
-- Does html.tpl.php of your theme output the `$page_bottom` variable?
+- When we hover over the semi-transparent buttons at the bottom of the page, they turn opaque.
 
-## FAQ
+- When we hover over any link, it changes color.
 
-**Q: I want to prevent robots from indexing my custom error pages by
-setting the robots meta tag in the HTML head to "noindex".**
-**A:** There is no need to. **Customerror** returns the correct HTTP
-status codes (403 and 404). This will prevent robots from indexing the
-error pages.
+These interactions add a level of refinement to an otherwise static page. 
+My job will be to refine them even more. Currently, all these changes happen in an instant. Add transitions to make the changes smooth.
 
-**Q: I want to customize the custom error template output.**
-**A:** In your theme template folder for your site, copy the template
-provided by the **Customerror** module
-(i.e. `templates/customerror.html.twig`) and then make your
-modifications there.
+The website’s existing **index.html** and **style.css** files are displayed in the text editor.
 
-**Q: I want to have a different template for my 404 and 403 pages.**
-**A:** Copy `customerror.html.twig` to
-`customerror--404.html.twig` and `customerror--403.html.twig`. You
-do not need a `customerror.html.twig` for this to work.
+<br>
 
-### Contributing
-- Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
-- Please make sure to update tests as appropriate.
+# **Tasks**
 
-## License
-* [MIT](https://choosealicense.com/licenses/mit/)
+<br>
 
-* More about MIT License:
-- [Copyright (c) 2021 Othneil Drew](https://raw.githubusercontent.com/othneildrew/Best-README-Template/master/LICENSE.txt)
+#### **1. Add a CSS declaration to transition the text color inside the sidebar (nav a)**
 
-- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+In **style.css**, find the ruleset for links inside the sidebar (`nav a`). Add a CSS declaration to transition the text color. Experiment with different values for duration, timing function, and delay until I am satisfied.
 
-- The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+<br>
 
-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#### **2. Next, I’ll animate the "Next" and "Back" buttons' transparency**
 
-**
-Copyright (c) _20 April 2023_ _Minh Thuong Vo_**
+Find the `.button` ruleset. Add a declaration to transition the property opacity. Again, the choice for the other values is mine. Pick values for duration, timing function, and delay that feel good.
+
+<br>
+
+#### **3. Now make the sidebar slide out instead of instantly appearing**
+
+*Now make the sidebar slide out instead of instantly appearing*
+
+Add a declaration to the nav ruleset to transition the left property. Experiment with the other transition properties.
+
+<br>
+
+#### **4. Add a transition for the text color in the selector .definable .word**
+
+Find the selector .definable .word which selects the words that have definitions. Add a transition for the text color.
+
+<br>
+
+#### **5. Make the definition block fall down from the top of the page and fade in for this section is .definable. definable .definition-container**
+
+Add a declaration to transition the top property. Use a comma (,) to transition a second property, opacity.
+
+<br>
+
+### ***This Project was completed by [Nalini Vo](https://github.com/Nalini1998)***
